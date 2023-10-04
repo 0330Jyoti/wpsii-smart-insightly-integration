@@ -6,9 +6,7 @@ class WPSII_Smart_Insightly_Admin_Synchronization {
        	if ( isset( $_POST['submit'] ) ) {
 
             if(isset($_REQUEST['tab']) && $_REQUEST['tab'] == "general"){
-                $client_id                  = sanitize_text_field($_REQUEST['wpsii_smart_insightly_settings']['client_id']);
-                $client_secret              = sanitize_text_field($_REQUEST['wpsii_smart_insightly_settings']['client_secret']);
-                $wpsii_smart_insightly_data_center  = sanitize_text_field($_REQUEST['wpsii_smart_insightly_settings']['data_center']);
+                $api_key                  = sanitize_text_field($_REQUEST['wpsii_smart_insightly_settings']['api_key']);
             }
                         
             $wpsii_smart_insightly_settings  = !empty(get_option( 'wpsii_smart_insightly_settings' )) ? get_option( 'wpsii_smart_insightly_settings' ) : array();

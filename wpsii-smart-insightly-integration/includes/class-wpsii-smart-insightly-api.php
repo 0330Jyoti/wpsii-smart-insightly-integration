@@ -2,23 +2,20 @@
 class WPSII_Smart_Insightly_API {
     
     var $url;
-    var $client_id;
-    var $client_secret;
+    var $api_key;
     var $token;
     
     function __construct() {
 
         $wpszi_smart_zoho_settings     = get_option( 'wpszi_smart_zoho_settings' );
 
-        $client_id                  = esc_attr($wpszi_smart_zoho_settings['client_id']);
-        $client_secret              = esc_attr($wpszi_smart_zoho_settings['client_secret']);
+        $api_key                  = esc_attr($wpszi_smart_zoho_settings['api_key']);
         $wpszi_smart_zoho_data_center  = esc_attr($wpszi_smart_zoho_settings['data_center']);
 
         $wpszi_smart_zoho_data_center    = ( $wpszi_smart_zoho_data_center ? $wpszi_smart_zoho_data_center : 'https://accounts.zoho.com' );
 
         $this->url              = $wpszi_smart_zoho_data_center;
-        $this->client_id        = $client_id;
-        $this->client_secret    = $client_secret;
+        $this->api_key        = $api_key;
         $this->token            = get_option( 'wpszi_smart_zoho' );
 
         // Get any existing copy of our transient data
@@ -46,7 +43,7 @@ class WPSII_Smart_Insightly_API {
     function getToken( $code, $redirect_uri ) {
         
         $data = array(
-            'client_id'     => $this->client_id,
+            'api_key'     => $this->api_key,
             'client_secret' => $this->client_secret,
             'code'          => $code,
             'grant_type'    => 'authorization_code',
@@ -72,7 +69,7 @@ class WPSII_Smart_Insightly_API {
     
     function getRefreshToken( $token ) {
         $data = array(
-            'client_id'     => $this->client_id,
+            'api_key'     => $this->api_key,
             'client_secret' => $this->client_secret,
             'grant_type'    => 'refresh_token',
             'refresh_token' => $token->refresh_token,

@@ -3,11 +3,7 @@
 	$wpsii_smart_insightly 				= get_option( 'wpsii_smart_insightly' );
 	$wpsii_smart_insightly_settings 		= get_option( 'wpsii_smart_insightly_settings' );
 
-	$client_id 						=  isset($wpsii_smart_insightly_settings['client_id']) ? $wpsii_smart_insightly_settings['client_id'] : "";
-	$client_secret 					= isset($wpsii_smart_insightly_settings['client_secret']) ? $wpsii_smart_insightly_settings['client_secret'] : "";
-	$wpsii_smart_insightly_data_center 	= isset($wpsii_smart_insightly_settings['data_center']) ? $wpsii_smart_insightly_settings['data_center'] : "";
-
-	$wpsii_smart_insightly_data_center 	= ( $wpsii_smart_insightly_data_center ? $wpsii_smart_insightly_data_center : 'https://accounts.zoho.com' );
+	$api_key 						=  isset($wpsii_smart_insightly_settings['api_key']) ? $wpsii_smart_insightly_settings['api_key'] : "";
 ?>
 
 <div class="wrap">                
@@ -31,64 +27,13 @@
 			
 			<table class="form-table general_settings">
 				<tbody>
-					<tr>
-						<th scope="row"><label><?php echo esc_html__( 'Data Center', 'wpsii_smart_insightly' ); ?></label></th>
-						<td>
-							<fieldset>
-								<label>
-									<input 
-										type="radio" 
-										name="wpsii_smart_insightly_settings[data_center]" 
-										value="https://accounts.zoho.com"
-										<?php echo esc_html( $wpsii_smart_insightly_data_center == 'https://accounts.zoho.com' ? ' checked="checked"' : '' ); ?> />
-										United States (US)
-								</label><br>
-
-								<label>
-									<input 
-										type="radio" 
-										name="wpsii_smart_insightly_settings[data_center]" 
-										value="https://accounts.zoho.eu"
-										<?php echo esc_html( $wpsii_smart_insightly_data_center == 'https://accounts.zoho.eu' ? ' checked="checked"' : '' ); ?> />
-										Europe (EU)
-								</label><br>
-
-								<label>
-									<input 
-										type="radio" 
-										name="wpsii_smart_insightly_settings[data_center]" 
-										value="https://accounts.zoho.com.cn"
-										<?php echo esc_html( $wpsii_smart_insightly_data_center == 'https://accounts.zoho.com.cn' ? ' checked="checked"' : '' ); ?> />
-										China (CN)
-								</label>
-							</fieldset>
-						</td>
-					</tr>
 
 					<tr>
 						<th scope="row">
-							<label><?php echo esc_html__( 'Client ID', 'wpsii_smart_insightly' ); ?></label>
+							<label><?php echo esc_html__( 'API KEY', 'wpsii_smart_insightly' ); ?></label>
 						</th>
 						<td>
-							<input class="regular-text" type="text" name="wpsii_smart_insightly_settings[client_id]" value="<?php echo esc_attr($client_id); ?>" required />
-						</td>
-					</tr>
-
-					<tr>
-						<th scope="row">
-							<label><?php echo esc_html__( 'Client Secret', 'wpsii_smart_insightly' ); ?></label>
-						</th>
-						<td>
-							<input class="regular-text" type="text" name="wpsii_smart_insightly_settings[client_secret]" value="<?php echo esc_attr($client_secret); ?>" required />
-						</td>
-					</tr>
-
-					<tr>
-						<th scope="row">
-							<label><?php echo esc_attr( 'Redirect URI', 'wpsii-smart-insightly' ); ?></label>
-						</th>
-						<td>
-							<input class="regular-text" type="text" value="<?php echo esc_url(WPSII_REDIRECT_URI); ?>" readonly />
+							<input class="regular-text" type="text" name="wpsii_smart_insightly_settings[api_key]" value="<?php echo esc_attr($api_key); ?>" required />
 						</td>
 					</tr>
 

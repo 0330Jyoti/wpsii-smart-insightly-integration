@@ -10,8 +10,8 @@ class Order_Lists extends WP_List_Table {
 	/** Class constructor */
 	public function __construct() {
 		parent::__construct( [
-			'singular' => esc_html__( 'Order', 'wpszi-smart-zoho' ), //singular name of the listed records
-			'plural'   => esc_html__( 'Orders', 'wpszi-smart-zoho' ), //plural name of the listed records
+			'singular' => esc_html__( 'Order', 'wpszi-smart-insightly' ), //singular name of the listed records
+			'plural'   => esc_html__( 'Orders', 'wpszi-smart-insightly' ), //plural name of the listed records
 			'ajax'     => true //does this table support ajax?
 		] );
 	}
@@ -52,7 +52,7 @@ class Order_Lists extends WP_List_Table {
 	
 	/** Text displayed when no customer data is available */
 	public function no_items() {
-		echo esc_html__( 'No orders avaliable.', 'wpszi-smart-zoho' );
+		echo esc_html__( 'No orders avaliable.', 'wpszi-smart-insightly' );
 	}
 
 	/**
@@ -85,7 +85,7 @@ class Order_Lists extends WP_List_Table {
 		$action = '<form action="" method="post">                      
 						<input name="wp_module" value="orders" type="hidden" />
 						<input name="id" value="'.esc_attr($item['ID']).'" type="hidden" />
-						<button class="button" name="smart_synch" value="zoho" type="submit">'.esc_html__('Sync', 'wpszi-smart-zoho').'</button>
+						<button class="button" name="smart_synch" value="zoho" type="submit">'.esc_html__('Sync', 'wpszi-smart-insightly').'</button>
 					</form>';
 		return $action;
 	}
@@ -97,9 +97,9 @@ class Order_Lists extends WP_List_Table {
 	 */
 	function get_columns() {
 		$columns = [
-			'ID'    	=> esc_html__( 'Order Id', 'wpszi-smart-zoho' ),
-			'post_date' => esc_html__( 'Create Time', 'wpszi-smart-zoho' ),
-			'action'    => esc_html__( 'Action', 'wpszi-smart-zoho' )
+			'ID'    	=> esc_html__( 'Order Id', 'wpszi-smart-insightly' ),
+			'post_date' => esc_html__( 'Create Time', 'wpszi-smart-insightly' ),
+			'action'    => esc_html__( 'Action', 'wpszi-smart-insightly' )
 		];
 		return $columns;
 	}

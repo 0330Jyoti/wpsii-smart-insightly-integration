@@ -152,7 +152,7 @@ class WPSII_Smart_Insightly_API {
             'Authorization: Zoho-oauthtoken '.$this->token->access_token,
         );
         
-        $url = WPSII_INSIGHTLYAPIS_URL.'/crm/v2/'.$module;
+        $url = WPSII_INSIGHTLY_APIS_URL.'/crm/v2/'.$module;
         
         $ch = curl_init( $url );
         curl_setopt( $ch, CURLOPT_HTTPHEADER, $header );
@@ -190,7 +190,7 @@ class WPSII_Smart_Insightly_API {
             'Authorization: Zoho-oauthtoken '.$this->token->access_token,
         );
         
-        $url = WPSII_INSIGHTLYAPIS_URL.'/crm/v2/'.$module.'/'.$record_id;
+        $url = WPSII_INSIGHTLY_APIS_URL.'/crm/v2/'.$module.'/'.$record_id;
         
         $ch = curl_init( $url );
         curl_setopt( $ch, CURLOPT_HTTPHEADER, $header );

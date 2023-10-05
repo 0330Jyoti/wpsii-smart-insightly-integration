@@ -44,13 +44,13 @@ if (! defined('WPSII_SETTINGS_URI') ) {
     define('WPSII_SETTINGS_URI', admin_url( 'admin.php?page=wpsii-smart-insightly-integration' ));
 }
 
-if (! defined('WPSII_INSIGHTLYAPIS_URL') ) {
+if (! defined('WPSII_INSIGHTLY_APIS_URL') ) {
     $tld = "com";
     // $wpsii_smart_insightly_settings  = get_option( 'wpsii_smart_insightly_settings' );
     // if( !empty($wpsii_smart_insightly_settings['data_center'])){
     //     $tld = end(explode(".", parse_url( $wpsii_smart_insightly_settings['data_center'], PHP_URL_HOST)));
     // }
-    define('WPSII_INSIGHTLYAPIS_URL', 'https://www.zohoapis.'.$tld);
+    define('WPSII_INSIGHTLY_APIS_URL', 'https://www.zohoapis.'.$tld);
 }
 
 function wpsii_smart_insightly_activate() {
@@ -61,7 +61,6 @@ function wpsii_smart_insightly_activate() {
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-wpszi-smart-zoho-deactivator.php
  */
 function wpsii_smart_insightly_deactivate() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class.deactivator.php';

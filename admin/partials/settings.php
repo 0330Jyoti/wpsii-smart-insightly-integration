@@ -30,37 +30,10 @@
 
 					<tr>
 						<th scope="row">
-							<label><?php echo esc_html__( 'API KEY', 'wpsii_smart_insightly' ); ?></label>
+							<label><?php echo esc_html__( 'API Key', 'wpsii_smart_insightly' ); ?></label>
 						</th>
 						<td>
 							<input class="regular-text" type="text" name="wpsii_smart_insightly_settings[api_key]" value="<?php echo esc_attr($api_key); ?>" required />
-						</td>
-					</tr>
-
-					<tr>
-						<th scope="row">
-							<label><?php echo esc_html__( 'Access Token', 'wpszi-smart-zoho' ); ?></label>
-						</th>
-						<td>
-							
-							<?php 
-								if(isset($wpszi_smart_zoho->access_token)){
-									echo esc_html($wpszi_smart_zoho->access_token);
-								}
-							?>
-						</td>
-					</tr>
-
-					<tr>
-						<th scope="row">
-							<label><?php echo esc_html__( 'Refresh Token', 'wpszi-smart-zoho' ); ?></label>
-						</th>
-						<td>
-							<?php 
-								if(isset($wpszi_smart_zoho->refresh_token)){
-									echo esc_html($wpszi_smart_zoho->refresh_token);
-								}
-							?>
 						</td>
 					</tr>
 					
@@ -69,7 +42,7 @@
 
 			<div class="inline">
 				<p>
-					<input type='submit' class='button-primary' name="submit" value="<?php echo esc_html__( 'Save & Authorize', 'wpszi-smart-zoho' ); ?>" />
+					<input type='submit' class='button-primary' name="submit" value="<?php echo esc_html__( 'Save', 'wpszi-smart-zoho' ); ?>" />
 				</p>
 
 				<?php 

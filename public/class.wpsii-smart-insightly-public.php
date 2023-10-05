@@ -80,7 +80,7 @@ class WPSII_Smart_Insightly_Public {
         
         $default_wp_module = "orders";
 
-        $wpszi_smart_zoho_settings = get_option( 'wpsii_smart_insightly_settings' );
+        $wpsii_smart_insightly_settings = get_option( 'wpsii_smart_insightly_settings' );
         $synch_settings         = !empty( $wpsii_smart_insightly_settings['synch'] ) ? $wpsii_smart_insightly_settings['synch'] : array();
 
         foreach ($synch_settings as $wp_zoho_module => $enable) {
@@ -125,7 +125,7 @@ class WPSII_Smart_Insightly_Public {
 
         $default_wp_module = "products";
 
-        $wpszi_smart_zoho_settings = get_option( 'wpsii_smart_insightly_settings' );
+        $wpsii_smart_insightly_settings = get_option( 'wpsii_smart_insightly_settings' );
         $synch_settings         = !empty( $wpsii_smart_insightly_settings['synch'] ) ? $wpsii_smart_insightly_settings['synch'] : array();
 
         foreach ($synch_settings as $wp_zoho_module => $enable) {

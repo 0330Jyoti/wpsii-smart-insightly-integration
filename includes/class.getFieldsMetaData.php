@@ -3,7 +3,7 @@ class GetFieldsMetaData{
  
     public function execute($token, $module = NULL){
     	
-        $url = WPSZI_ZOHOAPIS_URL."/crm/v2/settings/fields?module=".$module;
+        $url = WPSII_INSIGHTLYAPIS_URL."/crm/v2/settings/fields?module=".$module;
         
         $curl = curl_init();
         $authtoken = array('Authorization: Zoho-oauthtoken '.$token->access_token);

@@ -7,14 +7,10 @@ class WPSII_Smart_Insightly_API {
     
     function __construct() {
 
-        $wpszi_smart_zoho_settings     = get_option( 'wpszi_smart_zoho_settings' );
+        $wpsii_smart_insightly_settings     = get_option( 'wpsii_smart_insightly_settings' );
 
-        $api_key                  = esc_attr($wpszi_smart_zoho_settings['api_key']);
-        $wpszi_smart_zoho_data_center  = esc_attr($wpszi_smart_zoho_settings['data_center']);
-
-        $wpszi_smart_zoho_data_center    = ( $wpszi_smart_zoho_data_center ? $wpszi_smart_zoho_data_center : 'https://accounts.zoho.com' );
-
-        $this->url              = $wpszi_smart_zoho_data_center;
+        $api_key                  = esc_attr($wpsii_smart_insightly_settings['api_key']);
+        $this->url              = 'https://accounts.zoho.com';
         $this->api_key        = $api_key;
         $this->token            = get_option( 'wpszi_smart_zoho' );
 
@@ -28,8 +24,8 @@ class WPSII_Smart_Insightly_API {
     }
     
     function loadAPIFiles(){
-        require_once WPSZI_PLUGIN_PATH . 'includes/class.getListofModules.php';
-        require_once WPSZI_PLUGIN_PATH . 'includes/class.getFieldsMetaData.php';
+        require_once WPSII_PLUGIN_PATH . 'includes/class.getListofModules.php';
+        require_once WPSII_PLUGIN_PATH . 'includes/class.getFieldsMetaData.php';
     }
 
     function getListModules(){
@@ -70,7 +66,7 @@ class WPSII_Smart_Insightly_API {
     function getRefreshToken( $token ) {
         $data = array(
             'api_key'     => $this->api_key,
-            'client_secret' => $this->client_secret,
+            
             'grant_type'    => 'refresh_token',
             'refresh_token' => $token->refresh_token,
         );
@@ -156,7 +152,7 @@ class WPSII_Smart_Insightly_API {
             'Authorization: Zoho-oauthtoken '.$this->token->access_token,
         );
         
-        $url = WPSZI_ZOHOAPIS_URL.'/crm/v2/'.$module;
+        $url = WPSII_INSIGHTLYAPIS_URL.'/crm/v2/'.$module;
         
         $ch = curl_init( $url );
         curl_setopt( $ch, CURLOPT_HTTPHEADER, $header );
@@ -175,7 +171,7 @@ class WPSII_Smart_Insightly_API {
             $log .= "message: ".$response->data[0]->message."\n";
             $log .= "Date: ".date( 'Y-m-d H:i:s' )."\n\n";                            
 
-            file_put_contents( WPSZI_PLUGIN_PATH.'debug.log', $log, FILE_APPEND );
+            file_put_contents( WPSII_PLUGIN_PATH.'debug.log', $log, FILE_APPEND );
         }
         
         return $response;
@@ -194,7 +190,7 @@ class WPSII_Smart_Insightly_API {
             'Authorization: Zoho-oauthtoken '.$this->token->access_token,
         );
         
-        $url = WPSZI_ZOHOAPIS_URL.'/crm/v2/'.$module.'/'.$record_id;
+        $url = WPSII_INSIGHTLYAPIS_URL.'/crm/v2/'.$module.'/'.$record_id;
         
         $ch = curl_init( $url );
         curl_setopt( $ch, CURLOPT_HTTPHEADER, $header );
@@ -212,7 +208,7 @@ class WPSII_Smart_Insightly_API {
             $log .= "message: ".$response->data[0]->message."\n";
             $log .= "Date: ".date( 'Y-m-d H:i:s' )."\n\n";                            
 
-            file_put_contents( WPSZI_PLUGIN_PATH.'debug.log', $log, FILE_APPEND );
+            file_put_contents( WPSII_PLUGIN_PATH.'debug.log', $log, FILE_APPEND );
         }
         
         return $response;

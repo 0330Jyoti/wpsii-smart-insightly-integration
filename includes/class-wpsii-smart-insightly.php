@@ -37,7 +37,7 @@ class WPSII_Smart_Insightly {
 
 	public function get_zoho_modules(){
 
-		$zoho_api_obj   = new WPSZI_Smart_Zoho_API();
+		$zoho_api_obj   = new WPSII_Smart_Insightly_API();
        
         /*get list modules*/
         $getListModules = $zoho_api_obj->getListModules();
@@ -214,7 +214,7 @@ class WPSII_Smart_Insightly {
     public function store_required_field_mapping_data(){
 
         global $wpdb;
-        $zoho_api_obj   = new WPSZI_Smart_Zoho_API();
+        $zoho_api_obj   = new WPSII_Smart_Insightly_API();
         $wp_modules     = $this->get_wp_modules();
         $getListModules = $this->get_zoho_modules();
 

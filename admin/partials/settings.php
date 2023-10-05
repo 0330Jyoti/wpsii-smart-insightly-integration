@@ -54,7 +54,7 @@
 
 		<?php }else if( isset($tab) && 'synch_settings' == $tab ){ ?>
 			<?php 
-				$smart_zoho_obj   = new WPSZI_Smart_Zoho();
+				$smart_zoho_obj   = new WPSII_Smart_Insightly();
 		        $wp_modules 	= $smart_zoho_obj->get_wp_modules();
 		        $getListModules = $smart_zoho_obj->get_zoho_modules();
 			?>
@@ -73,8 +73,8 @@
 														<label>
 															<input 
 																type="checkbox" 
-																name="wpszi_smart_zoho_settings[synch][<?php echo $wp_module_key.'_'.$singleModule['api_name']; ?>]" 
-																<?php @checked( $wpszi_smart_zoho_settings['synch']["{$wp_module_key}_{$singleModule['api_name']}"], 1 ); ?>
+																name="wpsii_smart_insightly_settings[synch][<?php echo $wp_module_key.'_'.$singleModule['api_name']; ?>]" 
+																<?php @checked( $wpsii_smart_insightly_settings['synch']["{$wp_module_key}_{$singleModule['api_name']}"], 1 ); ?>
 																value="1" />
 																Enable
 														</label>

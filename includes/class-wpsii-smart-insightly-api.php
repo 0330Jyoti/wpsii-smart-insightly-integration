@@ -10,12 +10,12 @@ class WPSII_Smart_Insightly_API {
         $wpsii_smart_insightly_settings     = get_option( 'wpsii_smart_insightly_settings' );
 
         $api_key                  = esc_attr($wpsii_smart_insightly_settings['api_key']);
-        $this->url              = 'https://accounts.zoho.com';
+        $this->url              = 'https://accounts.insightly.com';
         $this->api_key        = $api_key;
-        $this->token            = get_option( 'wpszi_smart_zoho' );
+        $this->token            = get_option( 'wpsii_smart_insightly' );
 
         // Get any existing copy of our transient data
-        if ( false === ( $wpszi_smart_zoho_expire = get_transient( 'wpszi_smart_zoho_expire' ) ) ) {
+        if ( false === ( $wpsii_smart_insightly_expire = get_transient( 'wpsii_smart_insightly_expire' ) ) ) {
             
             $this->getRefreshToken($this->token);
         }
@@ -87,24 +87,24 @@ class WPSII_Smart_Insightly_API {
         
         if ( isset( $response->access_token ) ) {
             $token->access_token = $response->access_token;
-            $wpszi_smart_zoho_expire = 'Expire_Management';
-            set_transient( 'wpszi_smart_zoho_expire', $wpszi_smart_zoho_expire, 3500 );
-            update_option( 'wpszi_smart_zoho', $token );
+            $wpsii_smart_insightly_expire = 'Expire_Management';
+            set_transient( 'wpsii_smart_insightly_expire', $wpsii_smart_insightly_expire, 3500 );
+            update_option( 'wpsii_smart_insightly', $token );
         }
         
         return $response;
     }
     
     function manageToken( $token ){
-        $old_token = get_option( 'wpszi_smart_zoho' );
+        $old_token = get_option( 'wpsii_smart_insightly' );
         if ( ! isset( $token->refresh_token ) && $old_token ) {
             $old_token->access_token = $token->access_token;
             $token = $old_token;
         }
         
-        $wpszi_smart_zoho_expire = 'Expire_Management';
-        set_transient( 'wpszi_smart_zoho_expire', $wpszi_smart_zoho_expire, 3500 );
-        update_option( 'wpszi_smart_zoho', $token );
+        $wpsii_smart_insightly_expire = 'Expire_Management';
+        set_transient( 'wpsii_smart_insightly_expire', $wpsii_smart_insightly_expire, 3500 );
+        update_option( 'wpsii_smart_insightly', $token );
         return true;
     }
 

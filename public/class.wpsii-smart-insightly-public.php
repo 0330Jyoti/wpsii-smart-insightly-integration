@@ -46,16 +46,16 @@ class WPSII_Smart_Insightly_Public {
                 
                 $get_insightly_field_mapping = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}smart_insightly_field_mapping WHERE wp_module ='".$wp_module."' AND insightly_module = '".$insightly_module."' AND status='active'");
 
-                foreach ($get_zoho_field_mapping as $key => $value) {
+                foreach ($get_insightly_field_mapping as $key => $value) {
                     $wp_field   = $value->wp_field;
-                    $zoho_field = $value->zoho_field;
+                    $insightly_field = $value->insightly_field;
 
-                    if ( $zoho_field ) {
+                    if ( $insightly_field ) {
                         if ( isset( $user_info->{$wp_field} ) ) {
                             if ( is_array( $user_info->{$wp_field} ) ) {
                                 $user_info->{$wp_field} = implode(';', $user_info->{$wp_field} );
                             }
-                            $data[$zoho_module][$zoho_field] = strip_tags( $user_info->{$wp_field} );
+                            $data[$insightly_module][$insightly_field] = strip_tags( $user_info->{$wp_field} );
                         }
                     }
                 }
@@ -83,24 +83,24 @@ class WPSII_Smart_Insightly_Public {
         $wpsii_smart_insightly_settings = get_option( 'wpsii_smart_insightly_settings' );
         $synch_settings         = !empty( $wpsii_smart_insightly_settings['synch'] ) ? $wpsii_smart_insightly_settings['synch'] : array();
 
-        foreach ($synch_settings as $wp_zoho_module => $enable) {
+        foreach ($synch_settings as $wp_insightly_module => $enable) {
             
-            $wp_zoho_module = explode('_', $wp_zoho_module);
-            $wp_module      = $wp_zoho_module[0];
-            $zoho_module    = $wp_zoho_module[1];
+            $wp_insightly_module = explode('_', $wp_insightly_module);
+            $wp_module      = $wp_insightly_module[0];
+            $insightly_module    = $wp_insightly_module[1];
 
             if($default_wp_module == $wp_module){
                 
-                $get_zoho_field_mapping = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}smart_zoho_field_mapping WHERE wp_module ='".$wp_module."' AND zoho_module = '".$zoho_module."' AND status='active'");
+                $get_insightly_field_mapping = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}smart_insightly_field_mapping WHERE wp_module ='".$wp_module."' AND insightly_module = '".$insightly_module."' AND status='active'");
 
-                foreach ($get_zoho_field_mapping as $key => $value) {
+                foreach ($get_insightly_field_mapping as $key => $value) {
                     $wp_field   = $value->wp_field;
-                    $zoho_field = $value->zoho_field;
+                    $insightly_field = $value->insightly_field;
 
-                    if ( $zoho_field ) {
+                    if ( $insightly_field ) {
 
                         if ( null !== $order->{$wp_field}() ) {
-                            $data[$zoho_module][$zoho_field] = strip_tags( $order->{$wp_field}() );
+                            $data[$insightly_module][$insightly_field] = strip_tags( $order->{$wp_field}() );
                         }
                     }
                 }
@@ -128,27 +128,27 @@ class WPSII_Smart_Insightly_Public {
         $wpsii_smart_insightly_settings = get_option( 'wpsii_smart_insightly_settings' );
         $synch_settings         = !empty( $wpsii_smart_insightly_settings['synch'] ) ? $wpsii_smart_insightly_settings['synch'] : array();
 
-        foreach ($synch_settings as $wp_zoho_module => $enable) {
+        foreach ($synch_settings as $wp_insightly_module => $enable) {
             
-            $wp_zoho_module = explode('_', $wp_zoho_module);
-            $wp_module      = $wp_zoho_module[0];
-            $zoho_module    = $wp_zoho_module[1];
+            $wp_insightly_module = explode('_', $wp_insightly_module);
+            $wp_module      = $wp_insightly_module[0];
+            $insightly_module    = $wp_insightly_module[1];
 
             if($default_wp_module == $wp_module){
                 
-                $get_zoho_field_mapping = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}smart_zoho_field_mapping WHERE wp_module ='".$wp_module."' AND zoho_module = '".$zoho_module."' AND status='active'");
+                $get_insightly_field_mapping = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}smart_insightly_field_mapping WHERE wp_module ='".$wp_module."' AND insightly_module = '".$insightly_module."' AND status='active'");
 
-                foreach ($get_zoho_field_mapping as $key => $value) {
+                foreach ($get_insightly_field_mapping as $key => $value) {
                     $wp_field   = $value->wp_field;
-                    $zoho_field = $value->zoho_field;
+                    $insightly_field = $value->insightly_field;
 
-                    if ( $zoho_field ) {
+                    if ( $insightly_field ) {
 
                         if ( null !== $product->{$wp_field}() ) {
                             if(is_array($product->{$wp_field}())){
-                                $data[$zoho_module][$zoho_field] = implode(',', $product->{$wp_field}());
+                                $data[$insightly_module][$insightly_field] = implode(',', $product->{$wp_field}());
                             }else{
-                                $data[$zoho_module][$zoho_field] = strip_tags( $product->{$wp_field}() );    
+                                $data[$insightly_module][$insightly_field] = strip_tags( $product->{$wp_field}() );    
                             }
                         }
                     }
@@ -165,38 +165,38 @@ class WPSII_Smart_Insightly_Public {
     public function prepareAndActionOnData($id, $data = array(), $default_wp_module = NULL){
         
         if( $default_wp_module == 'orders' ||  $default_wp_module == 'products' ){
-            $smart_zoho_relation = get_post_meta( $id, 'smart_zoho_relation', true );
+            $smart_insightly_relation = get_post_meta( $id, 'smart_insightly_relation', true );
         }else{
-            $smart_zoho_relation = get_user_meta( $id, 'smart_zoho_relation', true );    
+            $smart_insightly_relation = get_user_meta( $id, 'smart_insightly_relation', true );    
         }
         
 
-        if ( ! is_array( $smart_zoho_relation ) ) {
-            $smart_zoho_relation = array();
+        if ( ! is_array( $smart_insightly_relation ) ) {
+            $smart_insightly_relation = array();
         }
 
-        $zoho_api_obj   = new WPSZI_Smart_Zoho_API();
+        $insightly_api_obj   = new WPSII_Smart_Zoho_API();
         
-        foreach ($data as $zoho_module => $zoho_data) {
+        foreach ($data as $insightly_module => $insightly_data) {
             
-            $record_id = ( isset( $smart_zoho_relation[$zoho_module] ) ? $smart_zoho_relation[$zoho_module] : 0 );
+            $record_id = ( isset( $smart_insightly_relation[$insightly_module] ) ? $smart_insightly_relation[$insightly_module] : 0 );
 
             if ( $record_id ) {
-                $response = $zoho_api_obj->updateRecord($zoho_module, $zoho_data, $record_id);
+                $response = $insightly_api_obj->updateRecord($insightly_module, $insightly_data, $record_id);
             }else{
-                $response = $zoho_api_obj->addRecord($zoho_module, $zoho_data);
+                $response = $insightly_api_obj->addRecord($insightly_module, $insightly_data);
             }
                         
             if ( isset( $response->data[0]->details->id ) ) {
                 $record_id = $response->data[0]->details->id;
-                $smart_zoho_relation[$zoho_module] = $record_id;
+                $smart_insightly_relation[$insightly_module] = $record_id;
             }
         }
 
         if( $default_wp_module == 'orders' ||  $default_wp_module == 'products' ){
-            update_post_meta( $id, 'smart_zoho_relation', $smart_zoho_relation );
+            update_post_meta( $id, 'smart_insightly_relation', $smart_insightly_relation );
         }else{
-            update_user_meta( $id, 'smart_zoho_relation', $smart_zoho_relation );    
+            update_user_meta( $id, 'smart_insightly_relation', $smart_insightly_relation );    
         }
         
     }

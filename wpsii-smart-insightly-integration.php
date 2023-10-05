@@ -50,7 +50,7 @@ if (! defined('WPSII_INSIGHTLY_APIS_URL') ) {
     // if( !empty($wpsii_smart_insightly_settings['data_center'])){
     //     $tld = end(explode(".", parse_url( $wpsii_smart_insightly_settings['data_center'], PHP_URL_HOST)));
     // }
-    define('WPSII_INSIGHTLY_APIS_URL', 'https://www.zohoapis.'.$tld);
+    define('WPSII_INSIGHTLY_APIS_URL', 'https://www.insightlyapis.'.$tld);
 }
 
 function wpsii_smart_insightly_activate() {

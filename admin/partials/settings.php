@@ -42,21 +42,21 @@
 
 			<div class="inline">
 				<p>
-					<input type='submit' class='button-primary' name="submit" value="<?php echo esc_html__( 'Save', 'wpszi-smart-insightly' ); ?>" />
+					<input type='submit' class='button-primary' name="submit" value="<?php echo esc_html__( 'Save', 'wpsii-smart-insightly' ); ?>" />
 				</p>
 
 				<?php 
-					if(isset($wpszi_smart_zoho->refresh_token)){
-						echo '<p class="success">'.esc_html__('Authorized', 'wpszi-smart-insightly').'</p>';
+					if(isset($wpsii_smart_insightly->refresh_token)){
+						echo '<p class="success">'.esc_html__('Authorized', 'wpsii-smart-insightly').'</p>';
 					}
 				?>
 			</div>
 
 		<?php }else if( isset($tab) && 'synch_settings' == $tab ){ ?>
 			<?php 
-				$smart_zoho_obj   = new WPSII_Smart_Insightly();
-		        $wp_modules 	= $smart_zoho_obj->get_wp_modules();
-		        $getListModules = $smart_zoho_obj->get_zoho_modules();
+				$smart_insightly_obj   = new WPSII_Smart_Insightly();
+		        $wp_modules 	= $smart_insightly_obj->get_wp_modules();
+		        $getListModules = $smart_insightly_obj->get_insightly_modules();
 			?>
 			<table class="form-table synch_settings">
 				<tbody>
@@ -67,7 +67,7 @@
 					            	foreach ($wp_modules as $wp_module_key => $wp_module_name) {
 					            		?>
 						            		<tr>
-												<th scope="row"><label><?php echo esc_html__( "Enable {$wp_module_key} to Zoho {$singleModule['api_name']} Sync", 'wpszi-smart-insightly' ); ?></label></th>
+												<th scope="row"><label><?php echo esc_html__( "Enable {$wp_module_key} to Zoho {$singleModule['api_name']} Sync", 'wpsii-smart-insightly' ); ?></label></th>
 												<td>
 													<fieldset>
 														<label>
@@ -90,7 +90,7 @@
     				
 				</tbody>
 			</table>
-			<p><input type='submit' class='button-primary' name="submit" value="<?php echo esc_html__( 'Save', 'wpszi-smart-insightly' ); ?>" /></p>
+			<p><input type='submit' class='button-primary' name="submit" value="<?php echo esc_html__( 'Save', 'wpsii-smart-insightly' ); ?>" /></p>
 		
 		<?php }?>	
 		

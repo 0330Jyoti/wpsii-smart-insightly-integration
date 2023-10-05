@@ -1,12 +1,12 @@
  (function($) { 
  	"use strict"; 
-	var wp_module_name, zoho_module_name;
+	var wp_module_name, insightly_module_name;
  	jQuery(document).on("change", "select[name=wp_module]", function(){
 		jQuery('.loader').addClass('is-active');
 
 		wp_module_name = jQuery(this).val();
 		jQuery.ajax({
-	        url: smart_zoho_js.ajaxurl,
+	        url: smart_insightly_js.ajaxurl,
 	        type: 'post',
 	        data: {
 	            'action':'wp_field',
@@ -20,21 +20,21 @@
 	});
 
 
-	jQuery(document).on("change", "select[name=zoho_module]", function(){
+	jQuery(document).on("change", "select[name=insightly_module]", function(){
 		
 		jQuery('.loader').addClass('is-active');
 
-		zoho_module_name = jQuery(this).val();
+		insightly_module_name = jQuery(this).val();
 
 		jQuery.ajax({
-	        url: smart_zoho_js.ajaxurl,
+	        url: smart_insightly_js.ajaxurl,
 	        type: 'post',
 	        data: {
-	            'action':'zoho_field',
-	            'zoho_module_name': zoho_module_name
+	            'action':'insightly_field',
+	            'insightly_module_name': insightly_module_name
 	        },
 	        success: function( response ) {
-	            jQuery("select[name=zoho_field]").empty().append(response);
+	            jQuery("select[name=insightly_field]").empty().append(response);
 	            jQuery('.loader').removeClass('is-active');
 	        },
 	    });

@@ -35,7 +35,7 @@ class WPSII_Smart_Insightly {
             );
 	}
 
-	public function get_zoho_modules(){
+	public function get_insightly_modules(){
 
 		$zoho_api_obj   = new WPSII_Smart_Insightly_API();
        
@@ -216,7 +216,7 @@ class WPSII_Smart_Insightly {
         global $wpdb;
         $zoho_api_obj   = new WPSII_Smart_Insightly_API();
         $wp_modules     = $this->get_wp_modules();
-        $getListModules = $this->get_zoho_modules();
+        $getListModules = $this->get_insightly_modules();
 
         if($getListModules['modules']){
             foreach ($getListModules['modules'] as $key => $singleModule) {
@@ -255,7 +255,7 @@ class WPSII_Smart_Insightly {
                                             $record_exists = $wpdb->get_row( 
                                                 $wpdb->prepare(
                                                     "
-                                                    SELECT * FROM ".$wpdb->prefix ."smart_zoho_field_mapping  WHERE wp_module = %s AND wp_field = %s  AND zoho_module = %s AND zoho_field = %s
+                                                    SELECT * FROM ".$wpdb->prefix ."smart_insightly_field_mapping  WHERE wp_module = %s AND wp_field = %s  AND zoho_module = %s AND zoho_field = %s
                                                     " ,
                                                     $wpModuleSlug, $wp_field, $singleModule['api_name'], $zoho_field_data['api_name']
                                                     )
@@ -269,7 +269,7 @@ class WPSII_Smart_Insightly {
                                               
 
                                                 $wpdb->update(
-                                                    $wpdb->prefix . 'smart_zoho_field_mapping', 
+                                                    $wpdb->prefix . 'smart_insightly_field_mapping', 
                                                     array( 
                                                         'wp_module'     => sanitize_text_field($wpModuleSlug),
                                                         'wp_field'      => sanitize_text_field($wp_field),
@@ -294,7 +294,7 @@ class WPSII_Smart_Insightly {
 
                                             }else{
                                                 $wpdb->insert( 
-                                                    $wpdb->prefix . 'smart_zoho_field_mapping', 
+                                                    $wpdb->prefix . 'smart_insightly_field_mapping', 
                                                     array( 
                                                         'wp_module'     => sanitize_text_field($wpModuleSlug),
                                                         'wp_field'      => sanitize_text_field($wp_field),

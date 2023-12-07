@@ -54,9 +54,9 @@
 
 		<?php }else if( isset($tab) && 'synch_settings' == $tab ){ ?>
 			<?php 
-				$smart_zoho_obj   = new WPSII_Smart_Insightly();
-		        $wp_modules 	= $smart_zoho_obj->get_wp_modules();
-		        $getListModules = $smart_zoho_obj->get_zoho_modules();
+				$smart_insightly_obj   = new WPSII_Smart_Insightly();
+		        $wp_modules 	= $smart_insightly_obj->get_wp_modules();
+		        $getListModules = $smart_insightly_obj->get_insightly_modules();
 			?>
 			<table class="form-table synch_settings">
 				<tbody>

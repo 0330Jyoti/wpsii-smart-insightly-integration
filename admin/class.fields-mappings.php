@@ -16,7 +16,7 @@ class WPSII_Smart_Insightly_Field_Mappings {
        		$record_exists = $wpdb->get_row( 
        			$wpdb->prepare(
        				"
-       				SELECT * FROM ".$wpdb->prefix ."smart_zoho_field_mapping  WHERE wp_module = %s AND wp_field = %s  AND zoho_module = %s AND zoho_field = %s
+       				SELECT * FROM ".$wpdb->prefix ."smart_insightly_field_mapping  WHERE wp_module = %s AND wp_field = %s  AND zoho_module = %s AND zoho_field = %s
        				" ,
        				$wp_module, $wp_field, $zoho_module, $zoho_field
        				)
@@ -30,7 +30,7 @@ class WPSII_Smart_Insightly_Field_Mappings {
 			  
 
 			  	$wpdb->update(
-					$wpdb->prefix . 'smart_zoho_field_mapping', 
+					$wpdb->prefix . 'smart_insightly_field_mapping', 
 					array( 
 					    'wp_module' 	=> sanitize_text_field($wp_module),
 					    'wp_field' 		=> sanitize_text_field($wp_field),
@@ -56,7 +56,7 @@ class WPSII_Smart_Insightly_Field_Mappings {
 			}else{
 
 				$wpdb->insert(
-					$wpdb->prefix . 'smart_zoho_field_mapping', 
+					$wpdb->prefix . 'smart_insightly_field_mapping', 
 					array( 
 					    'wp_module' 	=> sanitize_text_field($wp_module),
 					    'wp_field' 		=> sanitize_text_field($wp_field),
@@ -86,7 +86,7 @@ class WPSII_Smart_Insightly_Field_Mappings {
 		if( isset( $_REQUEST['action'] ) && isset( $_REQUEST['id'] ) &&  $_REQUEST['action'] == 'trash' ){
 			global $wpdb;
 	   		$wpdb->delete( 
-				$wpdb->prefix . 'smart_zoho_field_mapping', 
+				$wpdb->prefix . 'smart_insightly_field_mapping', 
 				array( 
 				    'id' 	=> sanitize_text_field($_REQUEST['id']),
 				), 
@@ -94,7 +94,7 @@ class WPSII_Smart_Insightly_Field_Mappings {
 				    '%d'
 				) 
 			);
-			wp_redirect(admin_url('admin.php?page=wpszi-smart-zoho-mappings'));
+			wp_redirect(admin_url('admin.php?page=wpsii-smart-insightly-mappings'));
 			exit();
 		}    	
     }
@@ -103,9 +103,9 @@ class WPSII_Smart_Insightly_Field_Mappings {
         $wp_module 		= isset($_GET['wp_module']) ? sanitize_text_field($_GET['wp_module']) : false;
         $zoho_module 	= isset($_GET['zoho_module']) ? sanitize_text_field($_GET['zoho_module']) : false;
 
-        $smart_zoho_obj = new WPSZI_Smart_Zoho();
-        $wp_modules 	= $smart_zoho_obj->get_wp_modules();
-        $getListModules = $smart_zoho_obj->get_zoho_modules();
+        $smart_insightly_obj = new WPSII_Smart_Insightly();
+        $wp_modules 	= $smart_insightly_obj->get_wp_modules();
+        $getListModules = $smart_insightly_obj->get_insightly_modules();
         
        	require_once WPSII_PLUGIN_PATH . 'admin/partials/field-mappings.php';	
     }

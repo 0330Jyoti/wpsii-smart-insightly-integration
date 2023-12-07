@@ -1,6 +1,6 @@
 <div class="loader"></div>
 
-<form method="post" action="<?php echo admin_url('/admin.php?page=wpszi-smart-zoho-mappings') ?>" id="wpszi-smart-zoho-mappings-form">
+<form method="post" action="<?php echo admin_url('/admin.php?page=wpsii-smart-insightly-mappings') ?>" id="wpsii-smart-insightly-mappings-form">
 
     <h2><?php echo esc_html__('Fields Mapping', 'wpszi-smart-insightly'); ?></h2>
 

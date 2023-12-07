@@ -1,6 +1,6 @@
 <?php
     global $wpdb;
-    $fieldlists = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}smart_zoho_field_mapping");
+    $fieldlists = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}smart_insightly_field_mapping");
 ?>
     <h2><?php echo esc_html__('Fields Mapping List'); ?></h2>
 
@@ -42,7 +42,7 @@
                             <td><?php echo esc_html__($singlelist->description, 'wpszi-smart-insightly'); ?></td>
                             <td>
                                 <?php if($singlelist->is_predefined != 'yes' ){ ?>
-                                    <a href="<?php echo admin_url('admin.php?page=wpszi-smart-zoho-mappings&action=trash&id='.$singlelist->id); ?>">
+                                    <a href="<?php echo admin_url('admin.php?page=wpsii-smart-insightly-mappings&action=trash&id='.$singlelist->id); ?>">
                                         <button type="submit"><?php echo esc_html__('Delete', 'wpszi-smart-insightly'); ?></button>
                                     </a>
                                 <?php }?>

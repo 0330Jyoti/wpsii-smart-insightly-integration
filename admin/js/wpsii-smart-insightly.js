@@ -6,7 +6,7 @@
 
 		wp_module_name = jQuery(this).val();
 		jQuery.ajax({
-	        url: smart_zoho_js.ajaxurl,
+	        url: smart_insightly_js.ajaxurl,
 	        type: 'post',
 	        data: {
 	            'action':'wp_field',
@@ -18,7 +18,7 @@
 	        },
 	    });
 	});
-
+ 	
 
 	jQuery(document).on("change", "select[name=zoho_module]", function(){
 		
@@ -27,7 +27,7 @@
 		zoho_module_name = jQuery(this).val();
 
 		jQuery.ajax({
-	        url: smart_zoho_js.ajaxurl,
+	        url: smart_insightly_js.ajaxurl,
 	        type: 'post',
 	        data: {
 	            'action':'zoho_field',

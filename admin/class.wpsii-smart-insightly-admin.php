@@ -18,15 +18,14 @@ class WPSII_Smart_Insightly_Admin {
     private function menu() {
         add_action( 'admin_enqueue_scripts', array($this, 'wpsii_smart_insightly_scripts_callback') );
         add_action( 'wp_ajax_wp_field', array($this, 'wpsii_smart_insightly_wp_field_callback') );
-        add_action( 'wp_ajax_zoho_field', array($this, 'wpsii_smart_insightly_insightly_field_callback') );
+        add_action( 'wp_ajax_insightly_field', array($this, 'wpsii_smart_insightly_insightly_field_callback') );
         add_action( 'admin_menu', array($this, 'wpsii_smart_insightly_main_menu_callback') );
     }
 
     public function wpsii_smart_insightly_scripts_callback(  $hook ) {
-      
         $hook_array = array(
                             'toplevel_page_wpsii-smart-insightly-integration',
-                            'smart-insightly_page_wpsii-smart-zoho-mappings'
+                            'smart-insightly_page_wpsii-smart-insightly-mappings'
                         );
         if (  ! in_array($hook, $hook_array)  ) {
             return;

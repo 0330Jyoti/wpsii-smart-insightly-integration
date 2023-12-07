@@ -255,11 +255,7 @@ class WPSII_Smart_Insightly {
                                             $record_exists = $wpdb->get_row( 
                                                 $wpdb->prepare(
                                                     "
-<<<<<<< HEAD
-                                                    SELECT * FROM ".$wpdb->prefix ."smart_insightly_field_mapping  WHERE wp_module = %s AND wp_field = %s  AND zoho_module = %s AND zoho_field = %s
-=======
                                                     SELECT * FROM ".$wpdb->prefix ."smart_insightly_field_mapping  WHERE wp_module = %s AND wp_field = %s  AND insightly_module = %s AND insightly_field = %s
->>>>>>> 6d6baf01fc7200e3f48317f546733600ecdcc724
                                                     " ,
                                                     $wpModuleSlug, $wp_field, $singleModule['api_name'], $insightly_field_data['api_name']
                                                     )

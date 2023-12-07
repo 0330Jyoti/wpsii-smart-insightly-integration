@@ -43,11 +43,7 @@
                             <td>
                                 <?php if($singlelist->is_predefined != 'yes' ){ ?>
                                     <a href="<?php echo admin_url('admin.php?page=wpsii-smart-insightly-mappings&action=trash&id='.$singlelist->id); ?>">
-<<<<<<< HEAD
-                                        <button type="submit"><?php echo esc_html__('Delete', 'wpszi-smart-insightly'); ?></button>
-=======
                                         <button type="submit"><?php echo esc_html__('Delete', 'wpsii-smart-insightly'); ?></button>
->>>>>>> 6d6baf01fc7200e3f48317f546733600ecdcc724
                                     </a>
                                 <?php }?>
                             </td>

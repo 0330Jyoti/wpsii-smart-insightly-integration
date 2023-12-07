@@ -15,13 +15,7 @@ class WPSII_Smart_Insightly_Field_Mappings {
 
        		$record_exists = $wpdb->get_row( 
        			$wpdb->prepare(
-       				"
-<<<<<<< HEAD
-       				SELECT * FROM ".$wpdb->prefix ."smart_insightly_field_mapping  WHERE wp_module = %s AND wp_field = %s  AND zoho_module = %s AND zoho_field = %s
-=======
-       				SELECT * FROM ".$wpdb->prefix ."smart_insightly_field_mapping  WHERE wp_module = %s AND wp_field = %s  AND insightly_module = %s AND insightly_field = %s
->>>>>>> 6d6baf01fc7200e3f48317f546733600ecdcc724
-       				" ,
+       				"SELECT * FROM ".$wpdb->prefix ."smart_insightly_field_mapping  WHERE wp_module = %s AND wp_field = %s  AND insightly_module = %s AND insightly_field = %s" ,
        				$wp_module, $wp_field, $insightly_module, $insightly_field
        				)
        			
@@ -107,11 +101,7 @@ class WPSII_Smart_Insightly_Field_Mappings {
         $wp_module 		= isset($_GET['wp_module']) ? sanitize_text_field($_GET['wp_module']) : false;
         $insightly_module 	= isset($_GET['insightly_module']) ? sanitize_text_field($_GET['insightly_module']) : false;
 
-<<<<<<< HEAD
         $smart_insightly_obj = new WPSII_Smart_Insightly();
-=======
-        $smart_insightly_obj = new WPSII_Smart_Zoho();
->>>>>>> 6d6baf01fc7200e3f48317f546733600ecdcc724
         $wp_modules 	= $smart_insightly_obj->get_wp_modules();
         $getListModules = $smart_insightly_obj->get_insightly_modules();
         

@@ -19,7 +19,7 @@ class WPSII_Smart_Insightly_Admin_Synchronization {
 
 
         /*Synch product*/
-        if( isset( $_POST['smart_synch'] ) && $_POST['smart_synch'] == 'zoho' ){
+        if( isset( $_POST['smart_synch'] ) && $_POST['smart_synch'] == 'insightly' ){
 
            
             $id = $_POST['id'];
@@ -28,22 +28,22 @@ class WPSII_Smart_Insightly_Admin_Synchronization {
                 
                 case 'products':
                     
-                    $WPSZI_Smart_Zoho_Public = new WPSZI_Smart_Zoho_Public();
-                    $WPSZI_Smart_Zoho_Public->addProductToZoho( $id );
+                    $WPSII_Smart_Zoho_Public = new WPSII_Smart_Zoho_Public();
+                    $WPSII_Smart_Zoho_Public->addProductToZoho( $id );
 
                     break;
 
                 case 'orders':
                     
-                    $WPSZI_Smart_Zoho_Public = new WPSZI_Smart_Zoho_Public();
-                    $WPSZI_Smart_Zoho_Public->addOrderToZoho( $id );
+                    $WPSII_Smart_Zoho_Public = new WPSII_Smart_Zoho_Public();
+                    $WPSII_Smart_Zoho_Public->addOrderToZoho( $id );
 
                     break;
 
                 case 'customers':
                     
-                    $WPSZI_Smart_Zoho_Public = new WPSZI_Smart_Zoho_Public();
-                    $WPSZI_Smart_Zoho_Public->addUserToZoho( $id );
+                    $WPSII_Smart_Zoho_Public = new WPSII_Smart_Zoho_Public();
+                    $WPSII_Smart_Zoho_Public->addUserToZoho( $id );
 
                     break;    
                 

@@ -27,7 +27,11 @@
 .loader.is-active {visibility: visible;}
 
 
+<<<<<<< HEAD
 .smart-zoho_page_wpsii-smart-insightly-mappings table select{
+=======
+.smart-insightly_page_wpsii-smart-insightly-mappings table select{
+>>>>>>> 6d6baf01fc7200e3f48317f546733600ecdcc724
 	width: 100%;
 	padding: 8px;
 }

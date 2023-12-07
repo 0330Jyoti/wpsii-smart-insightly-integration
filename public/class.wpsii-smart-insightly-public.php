@@ -48,14 +48,14 @@ class WPSII_Smart_Insightly_Public {
 
                 foreach ($get_insightly_field_mapping as $key => $value) {
                     $wp_field   = $value->wp_field;
-                    $zoho_field = $value->zoho_field;
+                    $insightly_field = $value->insightly_field;
 
-                    if ( $zoho_field ) {
+                    if ( $insightly_field ) {
                         if ( isset( $user_info->{$wp_field} ) ) {
                             if ( is_array( $user_info->{$wp_field} ) ) {
                                 $user_info->{$wp_field} = implode(';', $user_info->{$wp_field} );
                             }
-                            $data[$zoho_module][$zoho_field] = strip_tags( $user_info->{$wp_field} );
+                            $data[$insightly_module][$insightly_field] = strip_tags( $user_info->{$wp_field} );
                         }
                     }
                 }
@@ -87,20 +87,28 @@ class WPSII_Smart_Insightly_Public {
             
             $wp_insightly_module = explode('_', $wp_insightly_module);
             $wp_module      = $wp_insightly_module[0];
+<<<<<<< HEAD
             $zoho_module    = $wp_insightly_module[1];
 
             if($default_wp_module == $wp_module){
                 
                 $get_insightly_field_mapping = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}smart_insightly_field_mapping WHERE wp_module ='".$wp_module."' AND zoho_module = '".$zoho_module."' AND status='active'");
+=======
+            $insightly_module    = $wp_insightly_module[1];
+
+            if($default_wp_module == $wp_module){
+                
+                $get_insightly_field_mapping = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}smart_insightly_field_mapping WHERE wp_module ='".$wp_module."' AND insightly_module = '".$insightly_module."' AND status='active'");
+>>>>>>> 6d6baf01fc7200e3f48317f546733600ecdcc724
 
                 foreach ($get_insightly_field_mapping as $key => $value) {
                     $wp_field   = $value->wp_field;
-                    $zoho_field = $value->zoho_field;
+                    $insightly_field = $value->insightly_field;
 
-                    if ( $zoho_field ) {
+                    if ( $insightly_field ) {
 
                         if ( null !== $order->{$wp_field}() ) {
-                            $data[$zoho_module][$zoho_field] = strip_tags( $order->{$wp_field}() );
+                            $data[$insightly_module][$insightly_field] = strip_tags( $order->{$wp_field}() );
                         }
                     }
                 }
@@ -132,23 +140,31 @@ class WPSII_Smart_Insightly_Public {
             
             $wp_insightly_module = explode('_', $wp_insightly_module);
             $wp_module      = $wp_insightly_module[0];
+<<<<<<< HEAD
             $zoho_module    = $wp_insightly_module[1];
 
             if($default_wp_module == $wp_module){
                 
                 $get_insightly_field_mapping = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}smart_insightly_field_mapping WHERE wp_module ='".$wp_module."' AND zoho_module = '".$zoho_module."' AND status='active'");
+=======
+            $insightly_module    = $wp_insightly_module[1];
+
+            if($default_wp_module == $wp_module){
+                
+                $get_insightly_field_mapping = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}smart_insightly_field_mapping WHERE wp_module ='".$wp_module."' AND insightly_module = '".$insightly_module."' AND status='active'");
+>>>>>>> 6d6baf01fc7200e3f48317f546733600ecdcc724
 
                 foreach ($get_insightly_field_mapping as $key => $value) {
                     $wp_field   = $value->wp_field;
-                    $zoho_field = $value->zoho_field;
+                    $insightly_field = $value->insightly_field;
 
-                    if ( $zoho_field ) {
+                    if ( $insightly_field ) {
 
                         if ( null !== $product->{$wp_field}() ) {
                             if(is_array($product->{$wp_field}())){
-                                $data[$zoho_module][$zoho_field] = implode(',', $product->{$wp_field}());
+                                $data[$insightly_module][$insightly_field] = implode(',', $product->{$wp_field}());
                             }else{
-                                $data[$zoho_module][$zoho_field] = strip_tags( $product->{$wp_field}() );    
+                                $data[$insightly_module][$insightly_field] = strip_tags( $product->{$wp_field}() );    
                             }
                         }
                     }
@@ -175,21 +191,29 @@ class WPSII_Smart_Insightly_Public {
             $smart_insightly_relation = array();
         }
 
-        $zoho_api_obj   = new WPSZI_Smart_Zoho_API();
+        $insightly_api_obj   = new WPSII_Smart_Zoho_API();
         
-        foreach ($data as $zoho_module => $zoho_data) {
+        foreach ($data as $insightly_module => $insightly_data) {
             
+<<<<<<< HEAD
             $record_id = ( isset( $smart_insightly_relation[$zoho_module] ) ? $smart_insightly_relation[$zoho_module] : 0 );
+=======
+            $record_id = ( isset( $smart_insightly_relation[$insightly_module] ) ? $smart_insightly_relation[$insightly_module] : 0 );
+>>>>>>> 6d6baf01fc7200e3f48317f546733600ecdcc724
 
             if ( $record_id ) {
-                $response = $zoho_api_obj->updateRecord($zoho_module, $zoho_data, $record_id);
+                $response = $insightly_api_obj->updateRecord($insightly_module, $insightly_data, $record_id);
             }else{
-                $response = $zoho_api_obj->addRecord($zoho_module, $zoho_data);
+                $response = $insightly_api_obj->addRecord($insightly_module, $insightly_data);
             }
                         
             if ( isset( $response->data[0]->details->id ) ) {
                 $record_id = $response->data[0]->details->id;
+<<<<<<< HEAD
                 $smart_insightly_relation[$zoho_module] = $record_id;
+=======
+                $smart_insightly_relation[$insightly_module] = $record_id;
+>>>>>>> 6d6baf01fc7200e3f48317f546733600ecdcc724
             }
         }
 

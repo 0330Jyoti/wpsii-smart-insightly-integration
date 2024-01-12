@@ -18,14 +18,14 @@
 
 		<?php if( isset($tab) && 'products' == $tab ){ ?>
 			<?php
-			$Product_List = new Product_List();
+			$Product_List = new Product_Lists();
 				$Product_List->prepare_items();
 				$Product_List->display(); 
 			?>	
 
 		<?php }else if( isset($tab) && 'orders' == $tab ){ ?>
 			<?php
-				$Orders_List = new Order_List();
+				$Orders_List = new Order_Lists();
 				$Orders_List->prepare_items();
 				$Orders_List->display(); 
 			?>	
@@ -33,7 +33,7 @@
 		<?php }else if( isset($tab) && 'customers' == $tab ){ ?>
 			
 			<?php 
-				$Customers_List = new Customers_List();
+				$Customers_List = new Customers_Lists();
 				$Customers_List->prepare_items();
 				$Customers_List->display(); 
 			?>

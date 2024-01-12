@@ -9,7 +9,8 @@ class WPSII_Smart_Insightly_API {
 
         $wpsii_smart_insightly_settings     = get_option( 'wpsii_smart_insightly_settings' );
 
-        $api_key                  = esc_attr($wpsii_smart_insightly_settings['api_key']);
+        $api_key = isset($wpsii_smart_insightly_settings['api_key']) ? esc_attr($wpsii_smart_insightly_settings['api_key']) : '';
+   
         $this->url              = 'https://accounts.insightly.com';
         $this->api_key        = $api_key;
         $this->token            = get_option( 'wpsii_smart_insightly' );
@@ -64,6 +65,11 @@ class WPSII_Smart_Insightly_API {
     }
     
     function getRefreshToken( $token ) {
+        
+        if (!is_object($token)) {
+            return null; 
+        }
+        
         $data = array(
             'api_key'     => $this->api_key,
             

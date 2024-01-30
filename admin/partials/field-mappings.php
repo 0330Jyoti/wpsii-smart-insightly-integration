@@ -41,11 +41,11 @@
         <!-- Zoho Modules Row -->
         <tr valign="top">
             <th scope="row" class="titledesc">
-                <label><?php echo  esc_html__( 'Zoho Modules', 'wpsii-smart-insightly' ); ?></label>
+                <label><?php echo  esc_html__( 'Insightly Modules', 'wpsii-smart-insightly' ); ?></label>
             </th>
             <td class="forminp forminp-text">
                 <select name="insightly_module">
-                    <option><?php echo  esc_html__('Select Zoho Module', 'wpsii-smart-insightly'); ?></option>
+                    <option><?php echo  esc_html__('Select Insightly Module', 'wpsii-smart-insightly'); ?></option>
                     <?php
                         $insightly_modules_options = "";
 
@@ -66,13 +66,13 @@
         </tr>
 
         <!-- Zoho Fields Row -->
-        <tr valign="top">
+       <tr valign="top">
             <th scope="row" class="titledesc">
-                <label><?php echo  esc_html__( 'Zoho Fields', 'wpsii-smart-insightly' ); ?></label>
+                <label><?php echo  esc_html__( 'Insightly Fields', 'wpszi-smart-zoho' ); ?></label>
             </th>
             <td class="forminp forminp-text">
                 <select name="insightly_field">
-                    <option><?php echo  esc_html__('Please select Zoho Modules', 'wpsii-smart-insightly'); ?></option>
+                    <option><?php echo  esc_html__('Please select Insightly Modules', 'wpszi-smart-zoho'); ?></option>
                 </select>
             </td>
         </tr>

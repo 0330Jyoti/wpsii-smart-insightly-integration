@@ -7,56 +7,39 @@ class GetFieldsMetaData{
                                                         'SALUTATION' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'SALUTATION',
-                                                                    'api_name' => 'SALUTATION'
+                                                                    'display_label' => 'Salutation',
+                                                                    'api_name' => 'Salutation'
                                                                 ),
                                                         'FIRST_NAME' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'FIRST_NAME',
-                                                                    'api_name' => 'FIRST_NAME'
+                                                                    'display_label' => 'First Name',
+                                                                    'api_name' => 'First Name'
                                                                 ),
                                                         'LAST_NAME' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'LAST_NAME',
-                                                                    'api_name' => 'LAST_NAME'
+                                                                    'display_label' => 'Lastname',
+                                                                    'api_name' => 'Lastname'
                                                                 ),
                                                         'PHONE_NUMBER' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'PHONE_NUMBER',
-                                                                    'api_name' => 'PHONE_NUMBER'
+                                                                    'display_label' => 'Phone Number',
+                                                                    'api_name' => 'Phone Number'
                                                                 ),
                                                         'IMAGE_URL' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'IMAGE_URL',
-                                                                    'api_name' => 'IMAGE_URL'
+                                                                    'display_label' => 'Image url',
+                                                                    'api_name' => 'Image url'
                                                                 ),
-                                                        'ADDRESS_MAIL_CITY' => array(
-                                                                    'system_mandatory' => 0,
-                                                                    'field_read_only' => '',
-                                                                    'display_label' => 'ADDRESS_MAIL_CITY',
-                                                                    'api_name' => 'ADDRESS_MAIL_CITY'
-                                                                ),
-                                                        'ADDRESS_MAIL_COUNTRY' => array(
-                                                                    'system_mandatory' => 0,
-                                                                    'field_read_only' => '',
-                                                                    'display_label' => 'ADDRESS_MAIL_COUNTRY',
-                                                                    'api_name' => 'ADDRESS_MAIL_COUNTRY'
-                                                                ),
-                                                        'ADDRESS_MAIL_POSTCODE' => array(
-                                                                    'system_mandatory' => 0,
-                                                                    'field_read_only' => '',
-                                                                    'display_label' => 'ADDRESS_MAIL_POSTCODE',
-                                                                    'api_name' => 'ADDRESS_MAIL_POSTCODE'
-                                                                ),
+                                                 
                                                         'ADDRESS_OTHER_CITY' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'ADDRESS_OTHER_CITY',
-                                                                    'api_name' => 'ADDRESS_OTHER_CITY'
+                                                                    'display_label' => 'Address Other City',
+                                                                    'api_name' => 'Address Other City'
                                                                 ),
                                                        
                                         ),
@@ -68,38 +51,38 @@ class GetFieldsMetaData{
                                                         'EMAIL' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'EMAIL',
-                                                                    'api_name' => 'EMAIL'
+                                                                    'display_label' => 'Email',
+                                                                    'api_name' => 'Email'
                                                                 ),
                                                         'FIRST_NAME' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'FIRST_NAME',
-                                                                    'api_name' => 'FIRST_NAME'
+                                                                    'display_label' => 'Firstname',
+                                                                    'api_name' => 'Firstname'
                                                                 ),
                                                         'LAST_NAME' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'LEAD_DESCRIPTION',
-                                                                    'api_name' => 'LEAD_DESCRIPTION'
+                                                                    'display_label' => 'Leadname',
+                                                                    'api_name' => 'Leadname'
                                                                 ),
                                                         'PHONE_NUMBER' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'PHONE_NUMBER',
-                                                                    'api_name' => 'PHONE_NUMBER'
+                                                                    'display_label' => 'Phone Number',
+                                                                    'api_name' => 'Phone Number'
                                                                 ),
                                                         'SOURCE_ID' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'SOURCE_ID',
-                                                                    'api_name' => 'SOURCE_ID'
+                                                                    'display_label' => 'Source ID',
+                                                                    'api_name' => 'Source ID'
                                                                 ),
                                                         'STATUS_ID' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'STATUS_ID',
-                                                                    'api_name' => 'STATUS_ID'
+                                                                    'display_label' => 'Status ID',
+                                                                    'api_name' => 'Status ID'
                                                                 ),
                                                     ),
                                     );
@@ -109,26 +92,26 @@ class GetFieldsMetaData{
                                                         'DESCRIPTION' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'DESCRIPTION',
-                                                                    'api_name' => 'DESCRIPTION'
+                                                                    'display_label' => 'Description',
+                                                                    'api_name' => 'Description'
                                                                 ),
                                                         'FIRST_NAME' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'FIRST_NAME',
-                                                                    'api_name' => 'FIRST_NAME'
+                                                                    'display_label' => 'Firstname',
+                                                                    'api_name' => 'Firstname'
                                                                 ),
                                                         'PROBABILITY' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'PROBABILITY',
-                                                                    'api_name' => 'PROBABILITY'
+                                                                    'display_label' => 'Probability',
+                                                                    'api_name' => 'Probability'
                                                                 ),
                                                         'VALUE' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'VALUE',
-                                                                    'api_name' => 'VALUE'
+                                                                    'display_label' => 'Value',
+                                                                    'api_name' => 'Value'
                                                                 ),
                                                     ),
                                 );
@@ -138,20 +121,20 @@ class GetFieldsMetaData{
                                                         'FIRST_NAME' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'FIRST_NAME',
-                                                                    'api_name' => 'FIRST_NAME'
+                                                                    'display_label' => 'Firstname',
+                                                                    'api_name' => 'Firstname'
                                                                 ),
                                                         'PHONE_NUMBER' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'PHONE_NUMBER',
-                                                                    'api_name' => 'PHONE_NUMBER'
+                                                                    'display_label' => 'Phone Number',
+                                                                    'api_name' => 'Phone Number'
                                                                 ),
                                                         'WEBSITE' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'WEBSITE',
-                                                                    'api_name' => 'WEBSITE'
+                                                                    'display_label' => 'Website',
+                                                                    'api_name' => 'Website'
                                                                 ),
                                             
                                                     ),
@@ -159,30 +142,31 @@ class GetFieldsMetaData{
                  }elseif($module == 'Project'){
                      $GetFieldsMetaData = array(
                                     'fields' => array(
+                                                         'FIRST_NAME' => array(
+                                                                    'system_mandatory' => 0,
+                                                                    'field_read_only' => '',
+                                                                    'display_label' => 'First Name',
+                                                                    'api_name' => 'First Name'
+                                                                ),
                                                         'DESCRIPTION' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'DESCRIPTION',
-                                                                    'api_name' => 'DESCRIPTION'
+                                                                    'display_label' => 'Description',
+                                                                    'api_name' => 'Description'
                                                                 ),
                                                         'START_DATE' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'START_DATE',
-                                                                    'api_name' => 'START_DATE'
+                                                                    'display_label' => 'Start Date',
+                                                                    'api_name' => 'Start Date'
                                                                 ),
                                                         'END_DATE' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'END_DATE',
-                                                                    'api_name' => 'END_DATE'
+                                                                    'display_label' => 'End Date',
+                                                                    'api_name' => 'End Date'
                                                                 ),
-                                                        'FIRST_NAME' => array(
-                                                                    'system_mandatory' => 0,
-                                                                    'field_read_only' => '',
-                                                                    'display_label' => 'FIRST_NAME',
-                                                                    'api_name' => 'FIRST_NAME'
-                                                                ),
+                                                       
                                             
                                                     ),
                                 ); 

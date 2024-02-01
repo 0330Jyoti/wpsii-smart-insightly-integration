@@ -12,14 +12,8 @@ class WPSII_Smart_Insightly_API {
         $api_key = isset($wpsii_smart_insightly_settings['api_key']) ? esc_attr($wpsii_smart_insightly_settings['api_key']) : '';
    
         $this->url              = 'https://accounts.insightly.com';
-        $this->api_key        = $api_key;
+        $this->api_key          = $api_key;
         $this->token            = get_option( 'wpsii_smart_insightly' );
-
-        // Get any existing copy of our transient data
-        if ( false === ( $wpsii_smart_insightly_expire = get_transient( 'wpsii_smart_insightly_expire' ) ) ) {
-        
-            $this->getRefreshToken($this->token);
-        }
 
         $this->loadAPIFiles();
     }
@@ -35,89 +29,6 @@ class WPSII_Smart_Insightly_API {
 
     function getFieldsMetaData( $module_name = NULL ){
         return (new GetFieldsMetaData())->execute($this->token, $module_name);
-    }
-
-    function getToken( $code, $redirect_uri ) {
-        
-        $data = array(
-            'api_key'     => $this->api_key,
-            'client_secret' => $this->client_secret,
-            'code'          => $code,
-            'grant_type'    => 'authorization_code',
-            'redirect_uri'  => $redirect_uri,
-        );
-        $data = http_build_query( $data );
-        
-        $url = $this->url.'/oauth/v2/token';
-        $ch = curl_init( $url );
-        curl_setopt( $ch, CURLOPT_HEADER, false );
-        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-        curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );        
-        curl_setopt( $ch, CURLOPT_POST, true );
-        curl_setopt( $ch, CURLOPT_POSTFIELDS, $data );
-        $json_response = curl_exec( $ch ); 
-        curl_getinfo( $ch, CURLINFO_HTTP_CODE );
-        curl_close( $ch );
-        
-        $response = json_decode( $json_response );
-        echo "<pre>";
-        print_r($response);
-        echo "</pre>";
-        exit;
-
-        return $response;
-    }
-    
-    function getRefreshToken( $token ) {
-        
-        if (!is_object($token)) {
-            return null; 
-        }
-        
-        $data = array(
-            'api_key'     => $this->api_key,
-            
-            'grant_type'    => 'refresh_token',
-            'refresh_token' => $token->refresh_token,
-        );
-        $data = http_build_query( $data );
-        
-        $url = $this->url.'/oauth/v2/token';
-        $ch = curl_init( $url );
-        curl_setopt( $ch, CURLOPT_HEADER, false );
-        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-        curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );        
-        curl_setopt( $ch, CURLOPT_POST, true );
-        curl_setopt( $ch, CURLOPT_POSTFIELDS, $data );
-        $json_response = curl_exec( $ch ); 
-        curl_getinfo( $ch, CURLINFO_HTTP_CODE );
-        curl_close( $ch );
-        
-        $response = json_decode( $json_response );
-        
-        if ( isset( $response->access_token ) ) {
-            $token->access_token = $response->access_token;
-
-            $wpsii_smart_insightly_expire = 'Expire_Management';
-            set_transient( 'wpsii_smart_insightly_expire', $wpsii_smart_insightly_expire, 3500 );
-            update_option( 'wpsii_smart_insightly', $token );
-
-        }
-        
-        return $response;
-    }
-    
-    function manageToken( $token ){
-        $old_token = get_option( 'wpsii_smart_insightly' );
-        if ( ! isset( $token->refresh_token ) && $old_token ) {
-            $old_token->access_token = $token->access_token;
-            $token = $old_token;
-        }
-        
-        $wpsii_smart_insightly_expire = 'Expire_Management';
-        set_transient( 'wpsii_smart_insightly_expire', $wpsii_smart_insightly_expire, 3500 );
-        update_option( 'wpsii_smart_insightly', $token );
-        return true;
     }
 
     function getModuleFields( $token, $module ) {
@@ -153,38 +64,41 @@ class WPSII_Smart_Insightly_API {
     
     function addRecord( $module, $data ) {
         
+       $api_key = '1d99d61a-1ae9-4ce0-8062-7a2ad9f881ac';
+        $api_endpoint = 'https://api.insight.ly/v3.1/Contacts';
+
+        $name = 'jigss bro'; 
+        $email = 'bro@example.com'; 
+        $phone = 9898992233;
+
         $data = array(
-            'data'  => array(
-                $data,
-            ),
+            'FIRST_NAME' => $name,
+            'EMAIL_ADDRESS' => $email,
         );
 
-        $data = json_encode( $data );
-        $header = array(
-            'Authorization: Insightly-oauthtoken '.$this->token->access_token,
-        );
-        
-        $url = WPSII_INSIGHTLY_APIS_URL.'/crm/v2/'.$module;
-        
-        $ch = curl_init( $url );
-        curl_setopt( $ch, CURLOPT_HTTPHEADER, $header );
-        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-        curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
-        curl_setopt( $ch, CURLOPT_POST, true );
-        curl_setopt( $ch, CURLOPT_POSTFIELDS, $data );
-        $json_response = curl_exec( $ch );
-        curl_getinfo( $ch, CURLINFO_HTTP_CODE );
-        curl_close( $ch );
-        
-        $response = json_decode( $json_response );
-        
-        if ( isset( $response->data[0]->status ) && $response->data[0]->status == 'error' ) {
+        $ch = curl_init($api_endpoint);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Authorization: Basic ' . base64_encode($api_key . ':'),
+            'Content-Type: application/json',
+        ));
+
+        $response = curl_exec($ch);
+        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+       if ( isset( $response->data[0]->status ) && $response->data[0]->status == 'error' ) {
             $log = "errorCode: ".$response->data[0]->code."\n";
             $log .= "message: ".$response->data[0]->message."\n";
             $log .= "Date: ".date( 'Y-m-d H:i:s' )."\n\n";                            
 
             file_put_contents( WPSII_PLUGIN_PATH.'debug.log', $log, FILE_APPEND );
         }
+        echo "<pre>";
+        print_r($response);
+        exit;
         
         return $response;
     }

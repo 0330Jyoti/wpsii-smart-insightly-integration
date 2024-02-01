@@ -28,22 +28,22 @@ class WPSII_Smart_Insightly_Admin_Synchronization {
                 
                 case 'products':
                     
-                    $WPSII_Smart_Zoho_Public = new WPSII_Smart_Insightly_Public();
-                    $WPSII_Smart_Zoho_Public->addProductToZoho( $id );
+                    $WPSII_Smart_Insightly_Public = new WPSII_Smart_Insightly_Public();
+                    $WPSII_Smart_Insightly_Public->addProductToInsightly( $id );
 
                     break;
 
                 case 'orders':
                     
-                    $WPSII_Smart_Zoho_Public = new WPSII_Smart_Insightly_Public();
-                    $WPSII_Smart_Zoho_Public->addOrderToZoho( $id );
+                    $WPSII_Smart_Insightly_Public = new WPSII_Smart_Insightly_Public();
+                    $WPSII_Smart_Insightly_Public->addOrderToInsightly( $id );
 
                     break;
 
                 case 'customers':
                     
-                    $WPSII_Smart_Zoho_Public = new WPSII_Smart_Insightly_Public();
-                    $WPSII_Smart_Zoho_Public->addUserToZoho( $id );
+                    $WPSII_Smart_Insightly_Public = new WPSII_Smart_Insightly_Public();
+                    $WPSII_Smart_Insightly_Public->addUserToInsightly( $id );
 
                     break;    
                 

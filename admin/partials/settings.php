@@ -67,7 +67,7 @@
 					            	foreach ($wp_modules as $wp_module_key => $wp_module_name) {
 					            		?>
 						            		<tr>
-												<th scope="row"><label><?php echo esc_html__( "Enable {$wp_module_key} to Zoho {$singleModule['api_name']} Sync", 'wpsii-smart-insightly' ); ?></label></th>
+												<th scope="row"><label><?php echo esc_html__( "Enable {$wp_module_key} to Insightly {$singleModule['api_name']} Sync", 'wpsii-smart-insightly' ); ?></label></th>
 												<td>
 													<fieldset>
 														<label>

@@ -10,23 +10,23 @@ class WPSII_Smart_Insightly_Public {
 
 
     private function loadCustomerAction() {
-        add_action( 'user_register', array($this, 'addUserToZoho') );
-        add_action( 'profile_update', array($this, 'addUserToZoho'), 10, 1 );
-        add_action( 'woocommerce_update_customer', array($this, 'addUserToZoho'), 10, 1 );
+        add_action( 'user_register', array($this, 'addUserToInsightly') );
+        add_action( 'profile_update', array($this, 'addUserToInsightly'), 10, 1 );
+        add_action( 'woocommerce_update_customer', array($this, 'addUserToInsightly'), 10, 1 );
     }
 
 
     private function loadOrderAction() {
-        add_action( 'save_post', array( $this, 'addOrderToZoho' ), 10, 1 );
-        add_action('woocommerce_thankyou', array( $this, 'addOrderToZoho' ), 10, 1);
+        add_action( 'save_post', array( $this, 'addOrderToInsightly' ), 10, 1 );
+        add_action('woocommerce_thankyou', array( $this, 'addOrderToInsightly' ), 10, 1);
     }
 
 
     private function loadProductAction() {
-        add_action( 'woocommerce_update_product', array( $this, 'addProductToZoho' ), 10, 1 );
+        add_action( 'woocommerce_update_product', array( $this, 'addProductToInsightly' ), 10, 1 );
     }
 
-    public function addUserToZoho( $user_id ){
+    public function addUserToInsightly( $user_id ){
         global $wpdb;
         $data       = array();
         $user_info  = get_userdata($user_id);
@@ -68,7 +68,7 @@ class WPSII_Smart_Insightly_Public {
     }
 
 
-    public function addOrderToZoho( $order_id ){
+    public function addOrderToInsightly( $order_id ){
         global $wpdb, $post_type; 
         $data       = array();
 
@@ -113,7 +113,7 @@ class WPSII_Smart_Insightly_Public {
     }
 
 
-    public function addProductToZoho( $post_id ){
+    public function addProductToInsightly( $post_id ){
         global $wpdb, $post_type, $data; 
         $data = array();
 
@@ -175,7 +175,7 @@ class WPSII_Smart_Insightly_Public {
             $smart_insightly_relation = array();
         }
 
-        $insightly_api_obj   = new WPSII_Smart_Zoho_API();
+        $insightly_api_obj   = new WPSII_Smart_Insightly_API();
         
         foreach ($data as $insightly_module => $insightly_data) {
             

@@ -38,7 +38,7 @@
             </td>
         </tr>
 
-        <!-- Zoho Modules Row -->
+        <!-- Insightly Modules Row -->
         <tr valign="top">
             <th scope="row" class="titledesc">
                 <label><?php echo  esc_html__( 'Insightly Modules', 'wpsii-smart-insightly' ); ?></label>
@@ -65,19 +65,19 @@
             </td>
         </tr>
 
-        <!-- Zoho Fields Row -->
+        <!-- Insightly Fields Row -->
        <tr valign="top">
             <th scope="row" class="titledesc">
-                <label><?php echo  esc_html__( 'Insightly Fields', 'wpszi-smart-zoho' ); ?></label>
+                <label><?php echo  esc_html__( 'Insightly Fields', 'wpszi-smart-insightly' ); ?></label>
             </th>
             <td class="forminp forminp-text">
                 <select name="insightly_field">
-                    <option><?php echo  esc_html__('Please select Insightly Modules', 'wpszi-smart-zoho'); ?></option>
+                    <option><?php echo  esc_html__('Please select Insightly Modules', 'wpszi-smart-insightly'); ?></option>
                 </select>
             </td>
         </tr>
 
-        <!-- Zoho Modules Row -->
+        <!-- Insightly Modules Row -->
         <tr valign="top">
             <th scope="row" class="titledesc">
                 <label><?php echo  esc_html__( 'Status', 'wpsii-smart-insightly' ); ?></label>
@@ -90,7 +90,7 @@
             </td>
         </tr>
 
-        <!-- Zoho Modules Row -->
+        <!-- Insightly Modules Row -->
         <tr valign="top">
             <th scope="row" class="titledesc">
                 <label><?php echo esc_html__( 'Description', 'wpsii-smart-insightly' ); ?></label>

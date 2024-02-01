@@ -60,7 +60,11 @@ class WPSII_Smart_Insightly_API {
         curl_close( $ch );
         
         $response = json_decode( $json_response );
-        
+        echo "<pre>";
+        print_r($response);
+        echo "</pre>";
+        exit;
+
         return $response;
     }
     
@@ -119,7 +123,7 @@ class WPSII_Smart_Insightly_API {
     function getModuleFields( $token, $module ) {
         
         $header = array(
-            'Authorization: Zoho-oauthtoken '.$token->access_token,
+            'Authorization: Insightly-oauthtoken '.$token->access_token,
             'Content-Type: application/json',
         );
         
@@ -157,7 +161,7 @@ class WPSII_Smart_Insightly_API {
 
         $data = json_encode( $data );
         $header = array(
-            'Authorization: Zoho-oauthtoken '.$this->token->access_token,
+            'Authorization: Insightly-oauthtoken '.$this->token->access_token,
         );
         
         $url = WPSII_INSIGHTLY_APIS_URL.'/crm/v2/'.$module;
@@ -195,7 +199,7 @@ class WPSII_Smart_Insightly_API {
         
         $data = json_encode( $data );
         $header = array(
-            'Authorization: Zoho-oauthtoken '.$this->token->access_token,
+            'Authorization: Insightly-oauthtoken '.$this->token->access_token,
         );
         
         $url = WPSII_INSIGHTLY_APIS_URL.'/crm/v2/'.$module.'/'.$record_id;

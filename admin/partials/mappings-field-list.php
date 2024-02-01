@@ -7,8 +7,8 @@
     <table id="mapping-list-table" class="wp-list-table widefat fixed striped table-view-list display">
         <thead>
             <th><?php echo esc_html__('Id', 'wpsii-smart-insightly'); ?></th>
-            <th><?php echo esc_html__('Zoho Module', 'wpsii-smart-insightly'); ?></th>
-            <th><?php echo esc_html__('Zoho Field', 'wpsii-smart-insightly'); ?></th>
+            <th><?php echo esc_html__('Insightly Module', 'wpsii-smart-insightly'); ?></th>
+            <th><?php echo esc_html__('Insightly Field', 'wpsii-smart-insightly'); ?></th>
             <th><?php echo esc_html__('WP Module', 'wpsii-smart-insightly'); ?></th>
             <th><?php echo esc_html__('WP Field', 'wpsii-smart-insightly'); ?></th>
             <th><?php echo esc_html__('Status', 'wpsii-smart-insightly'); ?></th>
@@ -18,8 +18,8 @@
 
         <tfoot>
             <th><?php echo esc_html__('Id', 'wpsii-smart-insightly'); ?></th>
-            <th><?php echo esc_html__('Zoho Module', 'wpsii-smart-insightly'); ?></th>
-            <th><?php echo esc_html__('Zoho Field', 'wpsii-smart-insightly'); ?></th>
+            <th><?php echo esc_html__('Insightly Module', 'wpsii-smart-insightly'); ?></th>
+            <th><?php echo esc_html__('Insightly Field', 'wpsii-smart-insightly'); ?></th>
             <th><?php echo esc_html__('WP Module', 'wpsii-smart-insightly'); ?></th>
             <th><?php echo esc_html__('WP Field', 'wpsii-smart-insightly'); ?></th>
             <th><?php echo esc_html__('Status', 'wpsii-smart-insightly'); ?></th>

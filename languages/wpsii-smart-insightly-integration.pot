@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Wszi Smart Zoho\n"
+"Project-Id-Version: Wszi Smart Insightly\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-14 14:25+0700\n"
 "PO-Revision-Date: 2021-08-14 14:25+0700\n"
@@ -63,22 +63,22 @@ msgstr ""
 msgid "sku"
 msgstr ""
 
-msgid "Select Zoho Fields"
+msgid "Select Insightly Fields"
 msgstr ""
 
-msgid "Smart Zoho"
+msgid "Smart Insightly"
 msgstr ""
 
-msgid "Smart Zoho Settings"
+msgid "Smart Insightly Settings"
 msgstr ""
 
-msgid "Smart Zoho Fields Mappings"
+msgid "Smart Insightly Fields Mappings"
 msgstr ""
 
 msgid "Fields Mappings"
 msgstr ""
 
-msgid "Smart Zoho Synchronization"
+msgid "Smart Insightly Synchronization"
 msgstr ""
 
 msgid "Synchronization"
@@ -99,16 +99,16 @@ msgstr ""
 msgid "Please select WP Modules"
 msgstr ""
 
-msgid "Zoho Modules"
+msgid "Insightly Modules"
 msgstr ""
 
-msgid "Select Zoho Module"
+msgid "Select Insightly Module"
 msgstr ""
 
-msgid "Zoho Fields"
+msgid "Insightly Fields"
 msgstr ""
 
-msgid "Please select Zoho Modules"
+msgid "Please select Insightly Modules"
 msgstr ""
 
 msgid "Status"
@@ -126,10 +126,10 @@ msgstr ""
 msgid "Add Mapping"
 msgstr ""
 
-msgid "Zoho Module"
+msgid "Insightly Module"
 msgstr ""
 
-msgid "Zoho Field"
+msgid "Insightly Field"
 msgstr ""
 
 msgid "WP Module"

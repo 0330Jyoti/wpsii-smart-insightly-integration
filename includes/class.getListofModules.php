@@ -4,11 +4,11 @@ class GetListofModules{
     public function execute($token){
         $getListModules = array(
                         'modules' => array(
-                                            'lead' => array(
+                                            'leads' => array(
                                                         'creatable' => 1,
                                                         'deletable' => 1,
-                                                        'api_name' =>  'Lead',
-                                                        'plural_label' =>  'Lead',
+                                                        'api_name' =>  'leads',
+                                                        'plural_label' =>  'Leads',
                                                         ),
                                             'contacts' => array(
                                                         'creatable' => 1,
@@ -16,23 +16,23 @@ class GetListofModules{
                                                         'api_name' =>  'Contacts',
                                                         'plural_label' =>  'Contacts',
                                                         ),
-                                            'deal' => array(
+                                            'deals' => array(
                                                         'creatable' => 1,
                                                         'deletable' => 1,
-                                                        'api_name' =>  'Deal',
+                                                        'api_name' =>  'Deals',
                                                         'plural_label' =>  'Deal',
                                                         ),
-                                            'organization' => array(
+                                            'organizations' => array(
                                                         'creatable' => 1,
                                                         'deletable' => 1,
-                                                        'api_name' =>  'Organization',
-                                                        'plural_label' =>  'Organization',
+                                                        'api_name' =>  'organizations',
+                                                        'plural_label' =>  'Organizations',
                                                         ),
-                                            'project' => array(
+                                            'projects' => array(
                                                         'creatable' => 1,
                                                         'deletable' => 1,
-                                                        'api_name' =>  'Project',
-                                                        'plural_label' =>  'Project',
+                                                        'api_name' =>  'Projects',
+                                                        'plural_label' =>  'Projects',
                                                         ),
                                         )
         );

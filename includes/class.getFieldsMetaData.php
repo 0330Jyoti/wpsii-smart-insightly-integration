@@ -1,7 +1,7 @@
 <?php
 class GetFieldsMetaData{
     public function execute($token, $module = NULL){
-        if ($module == 'Leads') {
+        if ($module == 'leads') {
         $GetFieldsMetaData = array(
                                     'fields' => array(
                                                         'LEAD_ID' => array(
@@ -122,7 +122,7 @@ class GetFieldsMetaData{
                                                                 ),
                                                     ),
                                 );
-                }elseif($module == 'Organisations'){
+                }elseif($module == 'organizations'){
                      $GetFieldsMetaData = array(
                                     'fields' => array(
                                                         'ORGANISATION_NAME' => array(
@@ -179,17 +179,17 @@ class GetFieldsMetaData{
                                                                     'display_label' => 'Project Description',
                                                                     'api_name' => 'PROJECT_DETAILS'
                                                                 ),
+                                                        'STATUS' => array(
+                                                                    'system_mandatory' => 1,
+                                                                    'field_read_only' => '',
+                                                                    'display_label' => 'Status',
+                                                                    'api_name' => 'STATUS'
+                                                                ),
                                                         'STARTED_DATE' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
                                                                     'display_label' => 'Start Date',
                                                                     'api_name' => 'STARTED_DATE'
-                                                                ),
-                                                        'COMPLETED_DATE' => array(
-                                                                    'system_mandatory' => 0,
-                                                                    'field_read_only' => '',
-                                                                    'display_label' => 'Complete Date',
-                                                                    'api_name' => 'COMPLETED_DATE'
                                                                 ),
                                                         'OWNER_USER_ID' => array(
                                                                     'system_mandatory' => 0,

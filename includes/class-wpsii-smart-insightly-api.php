@@ -86,7 +86,7 @@ class WPSII_Smart_Insightly_API {
 
             file_put_contents( WPSII_PLUGIN_PATH.'debug.log', $log, FILE_APPEND );
         }
-
+        
         return $response;
     }
     
@@ -100,10 +100,10 @@ class WPSII_Smart_Insightly_API {
         
         $data = json_encode( $data );
         $header = array(
-            'Authorization: Insightly-oauthtoken '.$this->token->access_token,
+            'Authorization: Insightly-oauthtoken '.$this->api_key,
         );
         
-        $url = WPSII_INSIGHTLY_APIS_URL.'/crm/v2/'.$module.'/'.$record_id;
+        $url = WPSII_INSIGHTLY_APIS_URL.'/v3.1/'.$module.'/'.$record_id;
         
         $ch = curl_init( $url );
         curl_setopt( $ch, CURLOPT_HTTPHEADER, $header );

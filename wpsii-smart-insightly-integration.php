@@ -45,12 +45,8 @@ if (! defined('WPSII_SETTINGS_URI') ) {
 }
 
 if (! defined('WPSII_INSIGHTLY_APIS_URL') ) {
-    $tld = "ly";
-    // $wpsii_smart_insightly_settings  = get_option( 'wpsii_smart_insightly_settings' );
-    // if( !empty($wpsii_smart_insightly_settings['data_center'])){
-    //     $tld = end(explode(".", parse_url( $wpsii_smart_insightly_settings['data_center'], PHP_URL_HOST)));
-    // }
-    define('WPSII_INSIGHTLY_APIS_URL', 'https://api.insight.'.$tld);
+
+    define('WPSII_INSIGHTLY_APIS_URL', 'https://api.insight.ly');
 }
 
 function wpsii_smart_insightly_activate() {

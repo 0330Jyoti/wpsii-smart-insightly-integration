@@ -1,170 +1,201 @@
 <?php
 class GetFieldsMetaData{
     public function execute($token, $module = NULL){
-        if ($module == 'Lead') {
+        if ($module == 'Leads') {
         $GetFieldsMetaData = array(
                                     'fields' => array(
-                                                        'SALUTATION' => array(
+                                                        'LEAD_ID' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'Salutation',
-                                                                    'api_name' => 'Salutation'
+                                                                    'display_label' => 'Lead ID',
+                                                                    'api_name' => 'LEAD_ID'
                                                                 ),
                                                         'FIRST_NAME' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
                                                                     'display_label' => 'First Name',
-                                                                    'api_name' => 'First Name'
+                                                                    'api_name' => 'FIRST_NAME'
                                                                 ),
                                                         'LAST_NAME' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'Lastname',
-                                                                    'api_name' => 'Lastname'
+                                                                    'display_label' => 'Last Name',
+                                                                    'api_name' => 'LAST_NAME'
                                                                 ),
-                                                        'PHONE_NUMBER' => array(
+                                                        'PHONE' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
                                                                     'display_label' => 'Phone Number',
-                                                                    'api_name' => 'Phone Number'
+                                                                    'api_name' => 'PHONE'
                                                                 ),
-                                                        'IMAGE_URL' => array(
-                                                                    'system_mandatory' => 0,
-                                                                    'field_read_only' => '',
-                                                                    'display_label' => 'Image url',
-                                                                    'api_name' => 'Image url'
-                                                                ),
-                                                 
-                                                        'ADDRESS_OTHER_CITY' => array(
-                                                                    'system_mandatory' => 0,
-                                                                    'field_read_only' => '',
-                                                                    'display_label' => 'Address Other City',
-                                                                    'api_name' => 'Address Other City'
-                                                                ),
-                                                       
-                                        ),
-                                ); 
-                }elseif ($module == 'Contact') {
-                     
-                     $GetFieldsMetaData = array(
-                                        'fields' => array(
                                                         'EMAIL' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
                                                                     'display_label' => 'Email',
-                                                                    'api_name' => 'Email'
+                                                                    'api_name' => 'EMAIL'
+                                                                ),
+                                                 
+                                                        'LEAD_DESCRIPTION' => array(
+                                                                    'system_mandatory' => 0,
+                                                                    'field_read_only' => '',
+                                                                    'display_label' => 'Lead Description',
+                                                                    'api_name' => 'LEAD_DESCRIPTION'
+                                                                ),
+                                                         'ADDRESS_CITY' => array(
+                                                                    'system_mandatory' => 0,
+                                                                    'field_read_only' => '',
+                                                                    'display_label' => 'Address City',
+                                                                    'api_name' => 'ADDRESS_CITY'
+                                                                ),
+                                                       
+                                        ),
+                                ); 
+                }elseif ($module == 'Contacts') {
+                     
+                     $GetFieldsMetaData = array(
+                                        'fields' => array(
+                                                        'EMAIL_ADDRESS' => array(
+                                                                    'system_mandatory' => 0,
+                                                                    'field_read_only' => '',
+                                                                    'display_label' => 'Email',
+                                                                    'api_name' => 'EMAIL_ADDRESS'
                                                                 ),
                                                         'FIRST_NAME' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'Firstname',
-                                                                    'api_name' => 'Firstname'
+                                                                    'display_label' => 'First Name',
+                                                                    'api_name' => 'FIRST_NAME'
                                                                 ),
                                                         'LAST_NAME' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'Leadname',
-                                                                    'api_name' => 'Leadname'
+                                                                    'display_label' => 'Last Name',
+                                                                    'api_name' => 'LAST_NAME'
                                                                 ),
-                                                        'PHONE_NUMBER' => array(
+                                                        'PHONE_MOBILE' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
                                                                     'display_label' => 'Phone Number',
-                                                                    'api_name' => 'Phone Number'
+                                                                    'api_name' => 'PHONE_MOBILE'
                                                                 ),
-                                                        'SOURCE_ID' => array(
+                                                         'TITLE' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'Source ID',
-                                                                    'api_name' => 'Source ID'
+                                                                    'display_label' => 'Title',
+                                                                    'api_name' => 'TITLE'
                                                                 ),
-                                                        'STATUS_ID' => array(
+                                                        'ADDRESS_MAIL_STREET' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'Status ID',
-                                                                    'api_name' => 'Status ID'
+                                                                    'display_label' => 'Address Mail Street',
+                                                                    'api_name' => 'ADDRESS_MAIL_STREET'
                                                                 ),
+
                                                     ),
                                     );
-                }elseif($module == 'Deal'){
+                }elseif($module == 'Deals'){
                      $GetFieldsMetaData = array(
                                     'fields' => array(
-                                                        'DESCRIPTION' => array(
-                                                                    'system_mandatory' => 0,
-                                                                    'field_read_only' => '',
-                                                                    'display_label' => 'Description',
-                                                                    'api_name' => 'Description'
-                                                                ),
                                                         'FIRST_NAME' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
                                                                     'display_label' => 'Firstname',
-                                                                    'api_name' => 'Firstname'
+                                                                    'api_name' => 'FIRST_NAME'
+                                                                ),
+                                                         'DESCRIPTION' => array(
+                                                                    'system_mandatory' => 0,
+                                                                    'field_read_only' => '',
+                                                                    'display_label' => 'Description',
+                                                                    'api_name' => 'DESCRIPTION'
                                                                 ),
                                                         'PROBABILITY' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
                                                                     'display_label' => 'Probability',
-                                                                    'api_name' => 'Probability'
+                                                                    'api_name' => 'PROBABILITY'
                                                                 ),
                                                         'VALUE' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
                                                                     'display_label' => 'Value',
-                                                                    'api_name' => 'Value'
+                                                                    'api_name' => 'VALUE'
                                                                 ),
                                                     ),
                                 );
-                }elseif($module == 'Organization'){
+                }elseif($module == 'Organisations'){
                      $GetFieldsMetaData = array(
                                     'fields' => array(
-                                                        'FIRST_NAME' => array(
+                                                        'ORGANISATION_NAME' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'Firstname',
-                                                                    'api_name' => 'Firstname'
+                                                                    'display_label' => 'Organisation Name',
+                                                                    'api_name' => 'ORGANISATION_NAME'
                                                                 ),
-                                                        'PHONE_NUMBER' => array(
+                                                        'ORGANISATION_ID' => array(
+                                                                    'system_mandatory' => 0,
+                                                                    'field_read_only' => '',
+                                                                    'display_label' => 'Organisation ID',
+                                                                    'api_name' => 'ORGANISATION_ID'
+                                                                ),
+                                                        'PHONE' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
                                                                     'display_label' => 'Phone Number',
-                                                                    'api_name' => 'Phone Number'
+                                                                    'api_name' => 'PHONE'
                                                                 ),
                                                         'WEBSITE' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
                                                                     'display_label' => 'Website',
-                                                                    'api_name' => 'Website'
+                                                                    'api_name' => 'WEBSITE'
+                                                                ),
+                                                        'ADDRESS_BILLING_STREET' => array(
+                                                                    'system_mandatory' => 0,
+                                                                    'field_read_only' => '',
+                                                                    'display_label' => 'Address Street',
+                                                                    'api_name' => 'ADDRESS_BILLING_STREET'
                                                                 ),
                                             
                                                     ),
                                 );   
-                 }elseif($module == 'Project'){
+                 }elseif($module == 'Projects'){
                      $GetFieldsMetaData = array(
                                     'fields' => array(
-                                                         'FIRST_NAME' => array(
+                                                         'PROJECT_ID' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'First Name',
-                                                                    'api_name' => 'First Name'
+                                                                    'display_label' => 'Project ID',
+                                                                    'api_name' => 'PROJECT_ID'
                                                                 ),
-                                                        'DESCRIPTION' => array(
+                                                        'PROJECT_NAME' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'Description',
-                                                                    'api_name' => 'Description'
+                                                                    'display_label' => 'Project Name',
+                                                                    'api_name' => 'PROJECT_NAME'
                                                                 ),
-                                                        'START_DATE' => array(
+                                                        'PROJECT_DETAILS' => array(
+                                                                    'system_mandatory' => 0,
+                                                                    'field_read_only' => '',
+                                                                    'display_label' => 'Project Description',
+                                                                    'api_name' => 'PROJECT_DETAILS'
+                                                                ),
+                                                        'STARTED_DATE' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
                                                                     'display_label' => 'Start Date',
-                                                                    'api_name' => 'Start Date'
+                                                                    'api_name' => 'STARTED_DATE'
                                                                 ),
-                                                        'END_DATE' => array(
+                                                        'COMPLETED_DATE' => array(
                                                                     'system_mandatory' => 0,
                                                                     'field_read_only' => '',
-                                                                    'display_label' => 'End Date',
-                                                                    'api_name' => 'End Date'
+                                                                    'display_label' => 'Complete Date',
+                                                                    'api_name' => 'COMPLETED_DATE'
+                                                                ),
+                                                        'OWNER_USER_ID' => array(
+                                                                    'system_mandatory' => 0,
+                                                                    'field_read_only' => '',
+                                                                    'display_label' => 'Owner User ID',
+                                                                    'api_name' => 'OWNER_USER_ID'
                                                                 ),
                                                        
                                             

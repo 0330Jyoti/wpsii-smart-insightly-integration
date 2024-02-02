@@ -63,25 +63,15 @@ class WPSII_Smart_Insightly_API {
     }
     
     function addRecord( $module, $data ) {
-        
-       $api_key = '1d99d61a-1ae9-4ce0-8062-7a2ad9f881ac';
-        $api_endpoint = 'https://api.insight.ly/v3.1/Contacts';
 
-        $name = 'jigss bro'; 
-        $email = 'bro@example.com'; 
-        $phone = 9898992233;
-
-        $data = array(
-            'FIRST_NAME' => $name,
-            'EMAIL_ADDRESS' => $email,
-        );
+        $api_endpoint = WPSII_INSIGHTLY_APIS_URL.'/v3.1/'.$module;
 
         $ch = curl_init($api_endpoint);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'Authorization: Basic ' . base64_encode($api_key . ':'),
+            'Authorization: Basic ' . base64_encode($this->api_key . ':'),
             'Content-Type: application/json',
         ));
 
@@ -96,10 +86,7 @@ class WPSII_Smart_Insightly_API {
 
             file_put_contents( WPSII_PLUGIN_PATH.'debug.log', $log, FILE_APPEND );
         }
-        echo "<pre>";
-        print_r($response);
-        exit;
-        
+
         return $response;
     }
     

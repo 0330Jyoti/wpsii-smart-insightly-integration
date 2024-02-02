@@ -10,11 +10,11 @@ class GetListofModules{
                                                         'api_name' =>  'Lead',
                                                         'plural_label' =>  'Lead',
                                                         ),
-                                            'contact' => array(
+                                            'contacts' => array(
                                                         'creatable' => 1,
                                                         'deletable' => 1,
-                                                        'api_name' =>  'Contact',
-                                                        'plural_label' =>  'Contact',
+                                                        'api_name' =>  'Contacts',
+                                                        'plural_label' =>  'Contacts',
                                                         ),
                                             'deal' => array(
                                                         'creatable' => 1,

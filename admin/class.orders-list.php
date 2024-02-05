@@ -68,8 +68,8 @@ class Order_Lists extends WP_List_Table {
 	 */
 	public function column_default( $item, $column_name ) {
 		switch ( $column_name ) {
-			case 'ID':
-			case 'post_date':
+			case 'id':
+			case 'date_created_gmt':
 				return $item[ $column_name ];
 			default:
 				return print_r( $item, true ); //Show the whole array for troubleshooting purposes
@@ -87,7 +87,7 @@ class Order_Lists extends WP_List_Table {
 	function column_action( $item ) {							
 		$action = '<form action="" method="post">                      
 						<input name="wp_module" value="orders" type="hidden" />
-						<input name="id" value="'.esc_attr($item['ID']).'" type="hidden" />
+						<input name="id" value="'.esc_attr($item['id']).'" type="hidden" />
 						<button class="button" name="smart_synch" value="insightly" type="submit">'.esc_html__('Sync', 'wpsii-smart-insightly').'</button>
 					</form>';
 		return $action;
@@ -100,8 +100,8 @@ class Order_Lists extends WP_List_Table {
 	 */
 	function get_columns() {
 		$columns = [
-			'ID'    	=> esc_html__( 'Order Id', 'wpsii-smart-insightly' ),
-			'post_date' => esc_html__( 'Create Time', 'wpsii-smart-insightly' ),
+			'id'    	=> esc_html__( 'Order Id', 'wpsii-smart-insightly' ),
+			'date_created_gmt' => esc_html__( 'Create Time', 'wpsii-smart-insightly' ),
 			'action'    => esc_html__( 'Action', 'wpsii-smart-insightly' )
 		];
 		return $columns;
@@ -115,8 +115,8 @@ class Order_Lists extends WP_List_Table {
 	
 	public function get_sortable_columns() {
 		$sortable_columns = array(
-			'ID' => array( 'ID', true ),
-			'post_date' => array( 'post_date', true )
+			'id' => array( 'id', true ),
+			'date_created_gmt' => array( 'date_created_gmt', true )
 		);
 		return $sortable_columns;
 	}

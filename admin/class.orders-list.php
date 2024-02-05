@@ -12,7 +12,7 @@ class Order_Lists extends WP_List_Table {
 		parent::__construct( [
 			'singular' => esc_html__( 'Order', 'wpsii-smart-insightly' ), //singular name of the listed records
 			'plural'   => esc_html__( 'Orders', 'wpsii-smart-insightly' ), //plural name of the listed records
-			'ajax'     => true //does this table support ajax?
+			'ajax'     => true 
 		] );
 	}
 
@@ -26,8 +26,10 @@ class Order_Lists extends WP_List_Table {
 	 */
 	public static function get_order( $per_page = 10, $page_number = 1) {
 		global $wpdb;
-		$orderTableName = $wpdb->prefix.'posts';
-		$orderSql = "SELECT $orderTableName.ID, $orderTableName.post_date FROM $orderTableName WHERE $orderTableName.post_type = 'shop_order' AND post_status != 'draft'";
+
+		$orderTableName = $wpdb->prefix.'wc_orders';
+		$orderSql = "SELECT $orderTableName.id, $orderTableName.date_created_gmt FROM $orderTableName";
+
 		if ( ! empty( $_REQUEST['orderby'] ) ) {
 			$orderSql .= ' ORDER BY ' . esc_sql( $_REQUEST['orderby'] );
 			$orderSql .= ! empty( $_REQUEST['order'] ) ? ' ' . esc_sql( $_REQUEST['order'] ) : ' ASC';
@@ -36,7 +38,8 @@ class Order_Lists extends WP_List_Table {
 		$orderSql .= ' OFFSET ' . ( $page_number - 1 ) * $per_page;
 		
 		$orderData = $wpdb->get_results( $orderSql, 'ARRAY_A' );
-		$orderResult = json_decode(json_encode($orderData), true);			
+		$orderResult = json_decode(json_encode($orderData), true);	
+		
 		return $orderResult;
 	}
 

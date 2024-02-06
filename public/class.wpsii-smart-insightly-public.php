@@ -71,12 +71,16 @@ class WPSII_Smart_Insightly_Public {
     public function addOrderToInsightly( $order_id ){
         global $wpdb, $post_type; 
         $data       = array();
+        $test = get_post_type( $order_id );
 
-        if ( get_post_type( $order_id ) !== 'shop_order' ){
+        if ( get_post_type( $order_id ) !== 'shop_order_placehold' ){
             return;
         }
 
         $order = wc_get_order( $order_id );
+        if ( ! $order ) {
+            return;
+        }
         
         $default_wp_module = "orders";
 
@@ -99,8 +103,9 @@ class WPSII_Smart_Insightly_Public {
 
                     if ( $insightly_field ) {
 
-                        if ( null !== $order->{$wp_field}() ) {
-                            $data[$insightly_module][$insightly_field] = strip_tags( $order->{$wp_field}() );
+                        $order_field_value = $order->{$wp_field}();
+                        if ( $order_field_value !== null ) {
+                            $data[$insightly_module][$insightly_field] = strip_tags( $order_field_value );
                         }
                     }
                 }

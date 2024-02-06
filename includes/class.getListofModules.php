@@ -1,7 +1,7 @@
 <?php
 class GetListofModules{
     
-    public function execute($token){
+    public function execute(){
         $getListModules = array(
                         'modules' => array(
                                             'leads' => array(

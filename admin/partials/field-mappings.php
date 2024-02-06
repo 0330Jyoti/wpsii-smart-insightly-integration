@@ -68,7 +68,7 @@
         <!-- Insightly Fields Row -->
        <tr valign="top">
             <th scope="row" class="titledesc">
-                <label><?php echo  esc_html__( 'Insightly Fields', 'wpszi-smart-insightly' ); ?></label>
+                <label><?php echo  esc_html__( 'Insightly Fields', 'wpsii-smart-insightly' ); ?></label>
             </th>
             <td class="forminp forminp-text">
                 <select name="insightly_field">

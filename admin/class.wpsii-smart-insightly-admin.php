@@ -23,6 +23,7 @@ class WPSII_Smart_Insightly_Admin {
     }
 
     public function wpsii_smart_insightly_scripts_callback(  $hook ) {
+        
         $hook_array = array(
                             'toplevel_page_wpsii-smart-insightly-integration',
                             'smart-insightly_page_wpsii-smart-insightly-mappings'
@@ -196,18 +197,6 @@ class WPSII_Smart_Insightly_Admin {
     public function insightly_process_callback(){
         
         global $wpdb;
-
-        if ( isset( $_REQUEST['code'] ) ) {
-            $code           = sanitize_text_field($_REQUEST['code']);
-            $insightly_api_obj   = new WPSII_Smart_Insightly_API();
-            $token          = $insightly_api_obj->getToken( $code, WPSII_REDIRECT_URI );
-            
-            if ( isset( $token->error ) ) {
-                /*Error logic*/
-            } else {
-                $insightly_api_obj->manageToken( $token );    
-            }
-        }
 
         $smart_insightly_obj = new WPSII_Smart_Insightly();
         $smart_insightly_obj->store_required_field_mapping_data();

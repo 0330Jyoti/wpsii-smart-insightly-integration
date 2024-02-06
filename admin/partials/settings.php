@@ -32,9 +32,12 @@
 						<th scope="row">
 							<label><?php echo esc_html__( 'API Key', 'wpsii_smart_insightly' ); ?></label>
 						</th>
-						<td>
+
+                		<td>
 							<input class="regular-text" type="text" name="wpsii_smart_insightly_settings[api_key]" value="<?php echo esc_attr($api_key); ?>" required />
+								 <a href="https://crm.na1.insightly.com/Users/UserSettings">Get API key</a>
 						</td>
+
 					</tr>
 					
 				</tbody>

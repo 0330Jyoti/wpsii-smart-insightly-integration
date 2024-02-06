@@ -7,6 +7,7 @@ class WPSII_Smart_Insightly_Admin_Synchronization {
 
             if(isset($_REQUEST['tab']) && $_REQUEST['tab'] == "general"){
                 $api_key                  = sanitize_text_field($_REQUEST['wpsii_smart_insightly_settings']['api_key']);
+                
             }
                         
             $wpsii_smart_insightly_settings  = !empty(get_option( 'wpsii_smart_insightly_settings' )) ? get_option( 'wpsii_smart_insightly_settings' ) : array();

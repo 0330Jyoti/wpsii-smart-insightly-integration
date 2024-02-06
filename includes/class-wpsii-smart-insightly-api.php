@@ -3,7 +3,6 @@ class WPSII_Smart_Insightly_API {
     
     var $url;
     var $api_key;
-    var $token;
     
     function __construct() {
 
@@ -13,8 +12,6 @@ class WPSII_Smart_Insightly_API {
    
         $this->url              = 'https://accounts.insightly.com';
         $this->api_key          = $api_key;
-        $this->token            = get_option( 'wpsii_smart_insightly' );
-
         $this->loadAPIFiles();
     }
     
@@ -24,45 +21,13 @@ class WPSII_Smart_Insightly_API {
     }
 
     function getListModules(){
-        return (new GetListofModules())->execute($this->token);
+        return (new GetListofModules())->execute();
     }
 
     function getFieldsMetaData( $module_name = NULL ){
-        return (new GetFieldsMetaData())->execute($this->token, $module_name);
+        return (new GetFieldsMetaData())->execute($module_name);
     }
 
-    function getModuleFields( $token, $module ) {
-        
-        $header = array(
-            'Authorization: Insightly-oauthtoken '.$token->access_token,
-            'Content-Type: application/json',
-        );
-        
-        $url = $token->api_domain.'/crm/v2/settings/fields?module='.$module;
-        $ch = curl_init( $url );
-        curl_setopt( $ch, CURLOPT_HTTPHEADER, $header );
-        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-        curl_setopt( $ch, CURLOPT_SSL_VERIFYPEER, false );
-        $json_response = curl_exec( $ch );
-        curl_getinfo( $ch, CURLINFO_HTTP_CODE );
-        curl_close( $ch );
-        
-        $response = json_decode( $json_response );
-        $fields = array();
-        if ( isset( $response->fields ) && $response->fields != null ) {
-            foreach ( $response->fields as $field ) {
-                if ( isset( $field->view_type->create ) && $field->view_type->create ) {
-                    $fields[$field->api_name] = array(
-                        'label'     => $field->field_label,
-                        'type'      => $field->data_type,
-                    );
-                }
-            }
-        }
-
-        return $fields;
-    }
-    
     function addRecord( $module, $data ) {
 
         $api_endpoint = WPSII_INSIGHTLY_APIS_URL.'/v3.1/'.$module;
@@ -87,6 +52,7 @@ class WPSII_Smart_Insightly_API {
 
             file_put_contents( WPSII_PLUGIN_PATH.'debug.log', $log, FILE_APPEND );
         }
+        error_log($response);
         return $response;
     }
     

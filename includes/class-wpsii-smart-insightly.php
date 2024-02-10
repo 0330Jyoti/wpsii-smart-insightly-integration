@@ -27,7 +27,7 @@ class WPSII_Smart_Insightly {
 		return $this->version;
 	}
 
-	public function get_wp_modules(){
+	public function wpsii_get_wp_modules(){
 		return array(
                 'customers' => esc_html__('Customers','wpsii-smart-insightly'),
                 'orders'    => esc_html__('Orders','wpsii-smart-insightly'),
@@ -35,7 +35,7 @@ class WPSII_Smart_Insightly {
             );
 	}
 
-	public function get_insightly_modules(){
+	public function wpsii_get_insightly_modules(){
 
 		$insightly_api_obj   = new WPSII_Smart_Insightly_API();
        
@@ -45,7 +45,7 @@ class WPSII_Smart_Insightly {
         return $getListModules;
 	}
 
-	public static function get_customer_fields(){
+	public static function wpsii_get_customer_fields(){
     	
     	global $wpdb;
 		$wc_fields = array(
@@ -84,7 +84,7 @@ class WPSII_Smart_Insightly {
     }
 
 
-    public static  function get_order_fields(){
+    public static  function wpsii_get_order_fields(){
     	
     	global $wpdb;
 
@@ -166,7 +166,7 @@ class WPSII_Smart_Insightly {
     }
 
 
-    public static function get_product_fields(){
+    public static function wpsii_get_product_fields(){
     	global $wpdb;
 		$wc_fields = array(
 		    'get_id'              		=> esc_html__('Product Id', 'wpsii-smart-insightly'),
@@ -211,12 +211,12 @@ class WPSII_Smart_Insightly {
 		return $wc_fields;
     }
 
-    public function store_required_field_mapping_data(){
+    public function wpsii_store_required_field_mapping_data(){
 
         global $wpdb;
         $insightly_api_obj   = new WPSII_Smart_Insightly_API();
-        $wp_modules     = $this->get_wp_modules();
-        $getListModules = $this->get_insightly_modules();
+        $wp_modules     = $this->wpsii_get_wp_modules();
+        $getListModules = $this->wpsii_get_insightly_modules();
 
         if($getListModules['modules']){
             foreach ($getListModules['modules'] as $key => $singleModule) {

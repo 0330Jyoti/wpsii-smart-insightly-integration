@@ -4,10 +4,10 @@ class WPSII_Smart_Insightly_Field_Mappings {
 	var $customer_fields;
 	
 	public function __construct(){
-    	$this->deleteMappingRowFromTable();
+    	$this->wpsii_delete_mapping_row_from_table();
     }
 
-    public function processMappingsForm($POST = array()){
+    public function wpsii_process_mappings_form($POST = array()){
        	global $wpdb;
        	if(isset($_REQUEST['add_mapping'])){
 
@@ -56,15 +56,15 @@ class WPSII_Smart_Insightly_Field_Mappings {
 				$wpdb->insert(
 					$wpdb->prefix . 'smart_insightly_field_mapping', 
 					array( 
-					    'wp_module' 	=> sanitize_text_field($wp_module),
-					    'wp_field' 		=> sanitize_text_field($wp_field),
+					    'wp_module' 		=> sanitize_text_field($wp_module),
+					    'wp_field' 			=> sanitize_text_field($wp_field),
 					    'insightly_module' 	=> sanitize_text_field($insightly_module),
 					    'insightly_field'	=> sanitize_text_field($insightly_field), 
-					    'status' 		=> sanitize_text_field($status),
-					    'description' 	=> sanitize_text_field($description), 
-					    'is_predefined' => 'no', 
+					    'status' 			=> sanitize_text_field($status),
+					    'description' 		=> sanitize_text_field($description), 
+					    'is_predefined' 	=> 'no', 
 					), 
-					array( 
+					array(
 					    '%s', 
 					    '%s', 
 					    '%s', 
@@ -74,41 +74,39 @@ class WPSII_Smart_Insightly_Field_Mappings {
 					    '%s'
 					) 
 				);	
-
 			}
-       		
        	}
     }
 
-    public function deleteMappingRowFromTable(){
+    public function wpsii_delete_mapping_row_from_table(){
 		if( isset( $_REQUEST['action'] ) && isset( $_REQUEST['id'] ) &&  $_REQUEST['action'] == 'trash' ){
 			global $wpdb;
-	   		$wpdb->delete( 
+	   		$wpdb->delete(
 				$wpdb->prefix . 'smart_insightly_field_mapping', 
 				array( 
 				    'id' 	=> sanitize_text_field($_REQUEST['id']),
 				), 
-				array( 
+				array(
 				    '%d'
-				) 
+				)
 			);
 			wp_redirect(admin_url('admin.php?page=wpsii-smart-insightly-mappings'));
 			exit();
 		}    	
     }
 
-    public function displayMappingsForm(){
+    public function wpsii_display_mappings_form(){
         $wp_module 		= isset($_GET['wp_module']) ? sanitize_text_field($_GET['wp_module']) : false;
         $insightly_module 	= isset($_GET['insightly_module']) ? sanitize_text_field($_GET['insightly_module']) : false;
 
         $smart_insightly_obj = new WPSII_Smart_Insightly();
-        $wp_modules 	= $smart_insightly_obj->get_wp_modules();
-        $getListModules = $smart_insightly_obj->get_insightly_modules();
+        $wp_modules 	= $smart_insightly_obj->wpsii_get_wp_modules();
+        $getListModules = $smart_insightly_obj->wpsii_get_insightly_modules();
         
        	require_once WPSII_PLUGIN_PATH . 'admin/partials/field-mappings.php';	
     }
 
-    public function displayMappingsFieldList(){
+    public function wpsii_display_mappings_field_list(){
 
        	require_once WPSII_PLUGIN_PATH . 'admin/partials/mappings-field-list.php';	
     }

@@ -23,9 +23,7 @@
 	jQuery(document).on("change", "select[name=insightly_module]", function(){
 		
 		jQuery('.loader').addClass('is-active');
-
 		insightly_module_name = jQuery(this).val();
-
 		jQuery.ajax({
 	        url: smart_insightly_js.ajaxurl,
 	        type: 'post',
@@ -41,7 +39,6 @@
 	});
 
 	jQuery(document).ready(function(){
-
 		$('#mapping-list-table').DataTable( {
 	        initComplete: function () {
 	            this.api().columns().every( function () {
@@ -65,5 +62,4 @@
 	        }
 	    } );
 	});	    
-
 })(jQuery); 

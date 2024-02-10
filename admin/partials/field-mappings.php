@@ -1,5 +1,4 @@
 <div class="loader"></div>
-
 <form method="post" action="<?php echo admin_url('/admin.php?page=wpsii-smart-insightly-mappings') ?>" id="wpsii-smart-insightly-mappings-form">
 
     <h2><?php echo esc_html__('Fields Mapping', 'wpsii-smart-insightly'); ?></h2>

@@ -1,7 +1,7 @@
 <?php
 class WPSII_Smart_Insightly_Admin_Synchronization {
 
-    public function processSynch($POST = array()){
+    public function wpsii_process_synch($POST = array()){
        
        	if ( isset( $_POST['submit'] ) ) {
 
@@ -58,7 +58,7 @@ class WPSII_Smart_Insightly_Admin_Synchronization {
 
     }
 
-    public function displaySynchData(){
+    public function wpsii_display_synch_data(){
         require_once WPSII_PLUGIN_PATH . 'admin/partials/synchronization.php';
     }
 }

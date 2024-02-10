@@ -1,7 +1,7 @@
 <?php
 class WPSII_Smart_Insightly_Admin_Settings {
 
-    public function processSettingsForm($POST = array()){
+    public function wpsii_process_settings_form($POST = array()){
        
         if ( isset( $_POST['submit'] ) ) {
             $wpsii_smart_insightly_settings  = !empty(get_option( 'wpsii_smart_insightly_settings' )) ? get_option( 'wpsii_smart_insightly_settings' ) : array();
@@ -12,7 +12,7 @@ class WPSII_Smart_Insightly_Admin_Settings {
         }
     }
 
-    public function displaySettingsForm(){
+    public function wpsii_display_settings_form(){
         require_once WPSII_PLUGIN_PATH . 'admin/partials/settings.php';
     }
 }

@@ -87,15 +87,15 @@ class WPSII_Smart_Insightly_Admin {
 
             switch ( $_REQUEST['wp_module_name'] ) {
                 case 'customers':
-                    $wp_fields = WPSII_Smart_Insightly::get_customer_fields();
+                    $wp_fields = WPSII_Smart_Insightly::wpsii_get_customer_fields();
                     break;
 
                 case 'orders':
-                    $wp_fields = WPSII_Smart_Insightly::get_order_fields();
+                    $wp_fields = WPSII_Smart_Insightly::wpsii_get_order_fields();
                     break;
 
                 case 'products':
-                    $wp_fields = WPSII_Smart_Insightly::get_product_fields();
+                    $wp_fields = WPSII_Smart_Insightly::wpsii_get_product_fields();
                     break;
 
                 default:
@@ -172,7 +172,7 @@ class WPSII_Smart_Insightly_Admin {
                         esc_html__( 'Fields Mappings', 'wpsii-smart-Insightly' ), 
                         'manage_options', 
                         'wpsii-smart-insightly-mappings', 
-                        array($this, 'mappings_callback')
+                        array($this, 'wpsii_mappings_callback')
                     );
 
         add_submenu_page( 
@@ -199,7 +199,7 @@ class WPSII_Smart_Insightly_Admin {
         global $wpdb;
 
         $smart_insightly_obj = new WPSII_Smart_Insightly();
-        $smart_insightly_obj->store_required_field_mapping_data();
+        $smart_insightly_obj->wpsii_store_required_field_mapping_data();
         
         wp_redirect(WPSII_SETTINGS_URI);
         exit();
@@ -207,21 +207,21 @@ class WPSII_Smart_Insightly_Admin {
 
     public function settings_callback(){
         $admin_settings_obj = new WPSII_Smart_Insightly_Admin_Settings();
-        $admin_settings_obj->processSettingsForm();
-        $admin_settings_obj->displaySettingsForm();
+        $admin_settings_obj->wpsii_process_settings_form();
+        $admin_settings_obj->wpsii_display_settings_form();
     }
 
-    public function mappings_callback(){
+    public function wpsii_mappings_callback(){
         $field_mapping_obj = new WPSII_Smart_Insightly_Field_Mappings();
-        $field_mapping_obj->processMappingsForm();
-        $field_mapping_obj->displayMappingsForm(); 
-        $field_mapping_obj->displayMappingsFieldList();
+        $field_mapping_obj->wpsii_process_mappings_form();
+        $field_mapping_obj->wpsii_display_mappings_form(); 
+        $field_mapping_obj->wpsii_display_mappings_field_list();
     }
 
     public function Synchronization_callback(){
         $admin_synch_obj = new WPSII_Smart_Insightly_Admin_Synchronization();
-        $admin_synch_obj->processSynch();
-        $admin_synch_obj->displaySynchData();
+        $admin_synch_obj->wpsii_process_synch();
+        $admin_synch_obj->wpsii_display_synch_data();
     }
 }
 

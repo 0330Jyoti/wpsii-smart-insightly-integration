@@ -1,23 +1,21 @@
 <?php
 if (!defined('ABSPATH')) exit;
-
-if (!class_exists('WP_List_Table'))
-  {
+if (!class_exists('WP_List_Table')) {
     require_once (ABSPATH . 'wp-admin/includes/class-wp-list-table.php');
   }
 
-function usersFinalDatas($users_data)
-  {
+function wpsii_user_final_datas($users_data) {
     return $users_data['data'];
-  }
+}
 
 class Customers_Lists extends WP_List_Table{
     /** Class constructor */
     public function __construct(){
-        parent::__construct(['singular'     => esc_html__('Customer', 'wpsii-smart-insightly') , //singular name of the listed records
-        'plural'                            => esc_html__('Customers', 'wpsii-smart-insightly') , //plural name of the listed records
-        'ajax'                              => true
-        //does this table support ajax?
+        parent::__construct(
+            [
+                'singular'  => esc_html__('Customer', 'wpsii-smart-insightly') ,
+                'plural'    => esc_html__('Customers', 'wpsii-smart-insightly') ,
+                'ajax'      => true
         ]);
     }
 
@@ -29,7 +27,7 @@ class Customers_Lists extends WP_List_Table{
      *
      * @return mixed
      */
-    public static function get_customer($per_page    = 10, $page_number = 1){
+    public static function get_customer($per_page = 10, $page_number = 1){
         if (isset($_REQUEST['orderby']) && $_REQUEST['orderby']){
             $orderby     = $_REQUEST['orderby'];
         }else{
@@ -52,7 +50,7 @@ class Customers_Lists extends WP_List_Table{
             ));
 
         $result = json_decode(json_encode($users) , true);
-        return array_map('usersFinalDatas', $result);
+        return array_map('wpsii_user_final_datas', $result);
     }
 
     /**

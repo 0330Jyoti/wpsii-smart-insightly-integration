@@ -53,9 +53,6 @@ class WPSII_Smart_Insightly_API {
             file_put_contents( WPSII_PLUGIN_PATH.'debug.log', $log, FILE_APPEND );
         }
         error_log($response);
-        echo "<pre>";
-        print_r($response);
-        exit;
         return $response;
     }
     

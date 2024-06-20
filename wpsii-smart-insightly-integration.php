@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       WPSII Smart Insightly Integration
  * Plugin URI:        https://profiles.wordpress.org/iqbal1486/
- * Description:       WP Insightly help you to manage and synch possible WordPress data like customers, orders, products to the Insightly modules as per your settings options.
+ * Description:       WP Insightly help you to manage and synch possible WordPress data like customers, orders, products to the Insightly modules as per your settings/mapping options.
  * Version:           1.0.0
  * Requires at least: 5.2
  * Requires PHP:      7.2
